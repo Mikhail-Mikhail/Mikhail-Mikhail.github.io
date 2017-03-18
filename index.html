@@ -426,18 +426,31 @@
                  <hr>  
 
 
-       <!Отображение видео файла "puppy.flv" на Flash-плеере, с помощью скрипта:>
-       <!-- Воспроизводимый файл находится в папке проекта Video/puppy.flv -->
+  <!Отображение видео файла "puppy.flv" на Flash-плеере, с помощью скрипта:>
+  <!- Воспроизводимый файл находится в папке проекта Video/puppy.flv, а файл плеейра в папке Flash/OSplayer.swf   >
+  <!Почему-то не заработало! Плеер отображается но файл не воспроизводиться.В исходниках из книги тоже не работает.>
         <h4> Отображение видео файла "puppy.flv" на Flash-плеере: </h4>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
 
           <script type="text/javascript">
                  var flashvars = {};
-                 var params = {movie:"Video/puppy.flv"};
+                 var params = {movie:"../Video/puppy.flv"};
                  swfobject.embedSWF("Flash/OSplayer.swf","snow", "400", "320", "8.0.0",flashvars, params);
           </script> 
 
            <div id="snow"> <p>A video of a puppy playing in the snow</p> </div>
+             
+             <hr>
+
+       <!Отображение видео файла "puppy.mp4" с помощью элемента HTML5 "video":>
+          <video src="Video/puppy.mp4" 
+                  poster="images/puppy.jpg" 
+                  width="400" height="300" 
+                  preload
+                  controls
+                  loop>
+             <p>Отображение видео файла "puppy.mp4" с помощью элемента HTML5 "video":</p>
+           </video>
 
     </body>                  
 </html> 
