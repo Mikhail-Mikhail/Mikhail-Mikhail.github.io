@@ -443,14 +443,47 @@
              <hr>
 
        <!Отображение видео файла "puppy.mp4" с помощью элемента HTML5 "video":>
+       <h4>Отображение видео файла "puppy.mp4" с помощью элемента HTML5 "video":</h4>
           <video src="Video/puppy.mp4" 
                   poster="images/puppy.jpg" 
                   width="400" height="300" 
                   preload
                   controls
-                  loop>
-             <p>Отображение видео файла "puppy.mp4" с помощью элемента HTML5 "video":</p>
+                  loop>      
            </video>
+       
+           <hr>
+
+        <!Отображение видео с указанием нескольких источников видео-файлов: "puppy.mp4" или "puppy.webm" :>
+        <h4>Отображение видео с указанием нескольких источников видео-файлов: "puppy.mp4" или "puppy.webm":</h4>
+          <video poster="images/puppy.jpg" width="400" height="320" preload controls loop>
+              <source src="video/puppy.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+              <source src="video/puppy.webm" type='video/webm;codecs="vp8, vorbis"' />   
+          </video>
+
+          <hr>
+
+    <!Воспроизведение  mp3-файла "melody.mp3" на Flash-плеере, с помощью скрипта:>
+    <!Файл flash-плеера должен быть в папке: flash/player_mp3_1.0.0.swf >
+    <h4>Воспроизведение  mp3-файла "melody.mp3" на Flash-плеере, с помощью скрипта:</h4>
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+        <script type="text/javascript">
+            var flashvars = {};
+            var params = {mp3: "audio/melody.mp3"};
+            swfobject.embedSWF("flash/player_mp3_1.0.0.swf", "Player_Error", "200", "20", "8.0.0", flashvars, params);
+        </script>
+  
+         <div id="Player_Error">
+            <p>You cannot hear this track because this browser does not support our Flash music player.</p>
+         </div>
+
+         <hr>
+
+    <!Воспроизведение mp3-файла с помощью элемента HTML5 "audio":>
+    <h4>Воспроизведение mp3-файла с помощью элемента HTML5 "audio":</h4>
+       <audio src="audio/melody.mp3" controls>
+          <p>This browser does not support our audio format.</p>
+        </audio>
 
     </body>                  
 </html> 
