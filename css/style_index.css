@@ -1,0 +1,22 @@
+  /* Таблица стилей для страницы index.html */
+
+  /* Так обрамляются комментарии в CSS-файлах. */
+
+  body { font-family: Arial, Verdana, sans-serif;
+              border: 2px solid rgb(22,22,22); /* Рамка толщиной 2 пикселя.*/
+             padding: 20px; /* Отступ от рамки = 20 пикселей.*/
+             background-color: rgb(225,225,225);} 
+
+    #bottom { border: 2px solid rgb(255,0,0); /* Стили для элемента с id="bottom" */
+    	       color: red; }
+
+    /* Цвет задается в формате: #RRGGBB. Например #ff0000 - красный, #00ff00 - зеленый, #0000ff - синий  */
+   h1, h2 { color: #ee3e80;
+            background-color: white
+            opacity: 0.5;} 
+
+   h4 { color: green;}
+
+    p {color: #665544;}
+
+         
