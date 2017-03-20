@@ -19,4 +19,10 @@
 
     p {color: #665544;}
 
+
+     /* Задать размеры шрифтов:*/
+     #fontsizelab1 { font-size: 12px; }
+     #fontsizelab2 { font-size: 20px; }
+     #fontsizelab3 { font-size: 30px; }
+
          

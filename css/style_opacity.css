@@ -1,8 +1,13 @@
  /* Таблица стилей для страницы opacity.html */
 
-        
+          body{ /* Задать цвет фона с помощью элемента hsla-Hue,Saturation,Lightness,Alpha*/
+               
+                background-color: silver; /* Задать цвет фона для старых браузеров не поддерживающих hsla-элементы.*/
+                background-color: hsla(0, 0%, 78%, 0.5); /* Новые браузеры поддерживают hsla, но лучше всегда 
+                                                            использовать два варианта задания цвета.*/
+              }
 
-          /* Задать стили для блоков div<>, содержащих в себе блоки p<> :*/
+          /* Задать стили для блоков div<>, содержащих в себе блоки p<> :*/ 
           div {
 				width: 100px; /* Размеры блоков.*/
 			    height: 100px;
@@ -32,3 +37,8 @@
 			 #ref {  position: absolute;
 				    top: 300px;
 				    left: 20px; }
+
+             /* Задать размеры шрифтов:*/
+		     #fontsizelab1 { font-size: 12px; }
+		     #fontsizelab2 { font-size: 20px; }
+		     #fontsizelab3 { font-size: 30px; }
