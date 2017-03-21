@@ -20,9 +20,25 @@
     p {color: #665544;}
 
 
-     /* Задать размеры шрифтов:*/
+     /* Задать размеры шрифтов для параграфов с id=fontsizelab1, id=fontsizelab2, id=fontsizelab3,:*/
      #fontsizelab1 { font-size: 12px; }
      #fontsizelab2 { font-size: 20px; }
      #fontsizelab3 { font-size: 30px; }
 
+     /* Задать стили шрифтов для параграфов с атрибутами class="boldpar1" и др.:*/
+     .boldpar1 { font-weight: bold;}
+     .par2 { font-style: italic;}
+     .par3 { font-style: oblique;}
+
+     .par4 { text-transform: uppercase;}
+     .par5 { text-transform: lowercase;}
+     .par6 { text-transform: capitalize;}
+
+     .par7 { text-decoration: underline;}
+     .par8 { text-decoration: overline;}
+     .par9 { text-decoration: line-through;}
+
+          
+ 
+ 
          
