@@ -38,7 +38,17 @@
      .par8 { text-decoration: overline;}
      .par9 { text-decoration: line-through;}
 
+      .par10 { letter-spacing: 0.2em;}
+
+      .par11 { word-spacing: 0.2em;}
           
- 
+      .firmname  {
+                  font-family: Georgia, Times, serif;
+                  font-size: 250%;
+                  font-weight: normal;
+                  text-align: left;
+                  color: #0088dd;
+                  text-shadow: 2px 2px 3px #666666;
+                  padding-bottom: 10px;}
  
          
