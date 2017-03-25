@@ -93,14 +93,14 @@
                  width: 197px;
                  height: 54px;
                  border: 11px solid #ffffff;
-                 -moz-border-image: url("../images/dots.gif") 11 11 11 11 stretch;*/
-                 -webkit-border-image: url("../images/dots.gif") 11 11 11 11 stretch;*/
+                 -moz-border-image: url("../images/dots.gif") 11 11 11 11 stretch; /*Для старых браузеров*/
+                 -webkit-border-image: url("../images/dots.gif") 11 11 11 11 stretch;/*Для старых браузеров*/
                  border-image: url("../images/dots.gif") 11 11 11 11 stretch;} 
         p.brd2 {
                  width: 197px;
                  height: 54px;
                  border: 11px solid #ffffff;
-                 -moz-border-image: url("../images/dots.gif") 11 11 11 11 round;
-                 -webkit-border-image: url("../images/dots.gif") 11 11 11 11 round;
+                 -moz-border-image: url("../images/dots.gif") 11 11 11 11 round; /*Для старых браузеров*/
+                 -webkit-border-image: url("../images/dots.gif") 11 11 11 11 round;/*Для старых браузеров*/
                  border-image: url("../images/dots.gif") 11 11 11 11 round;}
     
