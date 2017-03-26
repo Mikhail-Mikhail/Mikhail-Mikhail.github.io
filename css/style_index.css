@@ -49,6 +49,7 @@
                   text-align: left;
                   border-style: solid;
                   border-color: #0088dd;
+                  border-radius: 30px 10px;
                   border-width: 3px;
                   padding: 5px;
                   width: 170px;
@@ -104,3 +105,65 @@
                  -webkit-border-image: url("../images/dots.gif") 11 11 11 11 round;/*Для старых браузеров*/
                  border-image: url("../images/dots.gif") 11 11 11 11 round;}
     
+        /* Сделать рамки в виде геометрических фигур. */
+        p.fig1 {
+                border: 5px solid #ee3e80;
+                padding: 10px;
+                width: 100px;
+                height: 100px;
+                display: inline-block;
+                margin: 20px;
+                border-top-left-radius: 80px 50px;
+               }
+
+       p.fig2 {
+                border: 5px solid #ee3e80;
+                padding: 10px;
+                width: 100px;
+                height: 100px;
+                display: inline-block;
+                margin: 20px;
+                border-radius: 1em 4em 1em 4em / 2em 1em 2em 1em;
+               } 
+
+       p.fig3 {
+                border: 5px solid #ee3e80;
+                padding: 10px;
+                width: 100px;
+                height: 100px;
+                display: inline-block;
+                margin: 20px;
+                border-radius: 100px;
+               }
+
+          /*Использовать изображения вместо индексов в списке.*/
+          ul.mylist{
+                    list-style-image: url("../images/star.png");
+                   }
+
+
+      /* Стили для окон ввода текста.*/
+       input#email,input#twitter,input#web {
+                                            font-size: 120%;
+                                            color: #5a5854;
+                                            background-color: #f2f2f2;
+                                            border: 1px solid #bdbdbd;
+                                            border-radius: 5px;
+                                            padding: 5px 5px 5px 30px;
+                                            background-repeat: no-repeat;
+                                            background-position: 8px 9px;
+                                            display: block;
+                                            margin-bottom: 10px;}
+
+        input#email:focus, input#email:hover,
+        input#twitter:focus, input#twitter:hover,
+        input#web:focus, input#web:hover {
+                                               background-color: #ffffff;
+                                               border: 1px solid #b1e1e4;}
+
+        input#email {
+                     background-image: url("../images/email.png");}
+        input#twitter {
+                       background-image: url("../images/twitter.png");}
+        input#web {
+                  background-image: url("../images/web.png");} 
