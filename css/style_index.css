@@ -41,11 +41,12 @@
       .par10 { letter-spacing: 0.2em;}
 
       .par11 { word-spacing: 0.2em;}
-          
+
+              
       .firmname  {
                   font-family: Georgia, Times, serif;
                   font-size: 250%;
-                  font-weight: normal;
+                  font-weight: normal;  
                   text-align: left;
                   border-style: solid;
                   border-color: #0088dd;
@@ -55,7 +56,8 @@
                   width: 170px;
                   color: #0088dd;
                   text-shadow: 2px 2px 3px #666666;
-                  padding-bottom: 10px;}
+                  padding-bottom: 10px;
+                 }
   
 
          /* Размеры элемента div с id=mybox */
@@ -210,5 +212,4 @@
         text-align: left;
         text-transform: uppercase;
 
-        /* Стиль отображения курсора над определенным элементом. */
-        a{ cursor: move;}
+      
