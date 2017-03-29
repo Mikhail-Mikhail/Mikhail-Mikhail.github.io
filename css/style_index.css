@@ -5,7 +5,9 @@
   body { font-family: Arial, Verdana, sans-serif;
               border: 2px solid rgb(22,22,22); /* Рамка толщиной 2 пикселя.*/
              padding: 20px; /* Отступ от рамки = 20 пикселей.*/
-             background-color: rgb(225,225,225);} 
+             background-color: rgb(225,225,225);
+             width: 90%; /* Установить плавающий размер страницы: масштабируется при изменении размеров окна браузера.*/
+       } 
 
     #bottom { border: 2px solid rgb(255,0,0); /* Стили для элемента с id="bottom" */
     	       color: red; }
