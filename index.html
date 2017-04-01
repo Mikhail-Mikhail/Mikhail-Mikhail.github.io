@@ -6,6 +6,8 @@
   <head>
     <title>  Сайт на HTML </title> <! Заголовок сайта>
 
+           <meta charset="utf-8">  <!Кодировка для правильного отображения русских шрифтов.->
+
            <! Это данные для поисковых систем. >
            <! Эти данные не отображаются на Web-странице и используются только поисковыми роботами.>
           <meta name="description" content="An Essay on Installation Art" />
@@ -125,19 +127,17 @@
                  </p>
              <hr>
              
-             <!Загрузка фотографии и текст слева от нее.>
-             <p> <img src="images/paris.jpg" alt="Paris" width="600" height="450" align="left" title="Eiffel Tower" />
-                 Фотография Эйфелевой башни в Париже. Остальное заполняется текстом: text text text text text text text text text text text text text text text text text text text text text text text text
-                 text text text text text text text text text text text text text text text text text text 
-                 text text text text text text text text text text text text text text text text text text!!! 
-             </p>
+             <!Загрузка фотографии.>
+             <figure>
+               <img  class="large_size align-left" src="images/paris.jpg" alt="Paris" title="Eiffel Tower" />
+                 <figcaption> Эйфелева башня в Париже.</figcaption>  
+              </figure>  
 
 
                 <!Загрузка фотографии с описанием под ней.> 
                 <figure>
-                	<img src="images/kolomna.jpg"  alt="kolomna" width="600" height="450"/>
-                     <br />
-                	<figcaption> Коломенский кремль</figcaption>
+                	<img class="large_size align-left" src="images/kolomna.jpg"  alt="kolomna"/>
+                  <figcaption> Коломенский кремль</figcaption>
                 </figure>  
 
                <hr> 

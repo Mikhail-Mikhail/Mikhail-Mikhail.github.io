@@ -21,6 +21,17 @@
 
     p {color: #665544;}
 
+    /* Размер изображений с классом large-size.*/
+    img.large_size {
+                    width: 400px;
+                    height:300px;
+                  }
+
+    /* Выравнивание изображений с классом align-left.*/
+    img.align-left{
+                   display: block;
+                  }
+ 
 
      /* Задать размеры шрифтов для параграфов с id=fontsizelab1, id=fontsizelab2, id=fontsizelab3,:*/
      #fontsizelab1 { font-size: 12px; }
