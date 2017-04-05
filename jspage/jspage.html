@@ -9,15 +9,50 @@
 
      <! Подключение таблицы стилей. >
      <link href="../css/style_jspage.css" type="text/css" rel="stylesheet" /> 
+
+       <!-- Функция на языке JavaScript -->
+       <script type="text/javascript">
+         "use strict" //Использовать строгий режим ECMAScript 5, если броузер поддерживает его.
+
+            //Функция вычисления суммы чисел.
+            function calculate{
+              // Отыскать элементы ввода в документе с id=num1 и id=num2.
+              var str1 = document.getElementById("num1");
+              var str2 = document.getElementById("num2");
+
+               var res = document.getElementById("res");
+
+                //Преобразовать строки из окон ввода в числа.
+                var num1 = parseFloat(str1.value);
+                var num2 = parseFloat(str2.value);
+
+                 var res = num1 +num2;
+
+                     
+       </script>
+
   </head>
 
     <body>
-         
+      
          <h4>Пример работы клиентского JavaScript:</h4>
        
-       <!Перейти на домашнюю страницу на метку "bottom">
-       <a  id="ref" href="../index.html#top">Домашняя страница.</a></li> 
-                                
+          <!--Создать окна для ввода чисел и отображения результата. 
+              Функция calculate() запускается по событию onchange для окон ввода чисел или
+              по событию onclik для кнопки.-->
+          <p> Введите первое число: <input type="text" id="num1" onchange="calculate();"></p>
+ 
+          <p> Введите второе число: <input type="text" id="num2" onchange="calculate();"></p>
+
+          <p> Результат: <input type="text" id="res"></p> 
+
+          <!-- Кнопка для расчета результата. По нажатию кнопки, формируется событи onclick и
+               запускается функция calculate() из сценария.-->
+           <p><button onclick="calculate();">Расчитать результат</button></p>   
+ 
+
+        <!Перейти на домашнюю страницу на метку "bottom">
+       <a  id="ref" href="../index.html#top">Домашняя страница.</a></li>             
     	
     </body>
  </html>
