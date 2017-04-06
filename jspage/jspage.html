@@ -12,44 +12,52 @@
 
        <!-- Функция на языке JavaScript -->
        <script type="text/javascript">
-         "use strict" //Использовать строгий режим ECMAScript 5, если броузер поддерживает его.
+         "use strict" //Использовать строгий режим ECMAScript 5, если браузер поддерживает его.
 
-            //Функция вычисления суммы чисел.
-            function calculate{
-              // Отыскать элементы ввода в документе с id=num1 и id=num2.
+            //Функция вычисления суммы чисел. 
+            function calculate(newcolor) {
+              // Найти элементы ввода в документе с id=num1 и id=num2.
               var str1 = document.getElementById("num1");
               var str2 = document.getElementById("num2");
 
-               var res = document.getElementById("res");
+               //Найти элемент вывода результата с id=result.
+               var result = document.getElementById("result");
+              
+               // Найти текстовый элемент с id=hh1.
+               var elem = document.getElementById("hh1");
 
                 //Преобразовать строки из окон ввода в числа.
                 var num1 = parseFloat(str1.value);
                 var num2 = parseFloat(str2.value);
 
-                 var res = num1 +num2;
+                  //Вычислить и отобразить сумму двух чисел.
+                  result.innerHTML = num1 + num2;  
 
-                     
-       </script>
+                  //Изменить цвет текстового элемента.
+                  elem.style.color = newcolor;  
+             }                 
+       </script>  
 
   </head>
 
     <body>
       
          <h4>Пример работы клиентского JavaScript:</h4>
-       
+           
           <!--Создать окна для ввода чисел и отображения результата. 
               Функция calculate() запускается по событию onchange для окон ввода чисел или
               по событию onclik для кнопки.-->
-          <p> Введите первое число: <input type="text" id="num1" onchange="calculate();"></p>
+          <p> Введите первое число: <input type="text" id="num1"></p>
  
-          <p> Введите второе число: <input type="text" id="num2" onchange="calculate();"></p>
+          <p> Введите второе число: <input type="text" id="num2"></p> 
 
-          <p> Результат: <input type="text" id="res"></p> 
+          <p> Сумма чисел = <span id="result"> </span></p>
 
           <!-- Кнопка для расчета результата. По нажатию кнопки, формируется событи onclick и
                запускается функция calculate() из сценария.-->
-           <p><button onclick="calculate();">Расчитать результат</button></p>   
- 
+           <p><button onclick="calculate('red');">Расчитать результат</button></p>   
+
+             <p id="hh1">После нажатия кнопки цвет этого текста станет красным!!!</p>
 
         <!Перейти на домашнюю страницу на метку "bottom">
        <a  id="ref" href="../index.html#top">Домашняя страница.</a></li>             
