@@ -224,5 +224,17 @@
         padding: 10px 20px;
         text-align: left;
         text-transform: uppercase;
+        }
+
+
+         #clock { /* Стили применяются к элементу с id="clock" */ 
+                      
+                      font: bold 12pt sans; /* Использовать большой полужирный шрифт */
+                      background: #ddf; /* Светлый,голубовато-серый фон */
+                      padding: 10px; /* Отступы вокруг */
+                      border: solid black 2px; /* И сплошная черная рамка */
+                      border-radius: 10px; /* Закругленные углы(если поддерживаются) */
+                } 
+      
 
       
