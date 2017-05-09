@@ -11,7 +11,11 @@
      <link href="../css/style_jspage2.css" type="text/css" rel="stylesheet" /> 
 
        <!-- Функция для отображения текущего времени на языке JavaScript -->
-       <script type="text/javascript" src = "../jsfiles/clock.js" >
+      <script type="text/javascript" src = "../jsfiles/clock.js" >
+      </script> 
+
+        <!-- JavaScript-сценарий для обратного отчета времени. -->
+       <script type="text/javascript" src = "../jsfiles/timer.js" >
        </script>
   </head>
 
@@ -19,9 +23,15 @@
       
          <h4> Пример на JavaScript: Отображение текщего времени.</h4>
            
-          <span id="clock"></span>
+          <!-- Элемент для отображения времени.--> 
+          <span id="clock"></span> 
            <br>
             <br>
+
+            <!-- Элемент для отображения обратного отсчета времени.--> 
+            <span id="tlab"></span>
+             <br>
+              <br>
 
               <!-- Вызов JavaScript кода из атрибута HTML-элемента. 
                    Такой JavaScript-код можно ввести в адресную строку браузера и выполнить. -->

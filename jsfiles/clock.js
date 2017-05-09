@@ -13,12 +13,9 @@
             
                  // Преобразовать текущее время в строку и вставить его в элемент 'clock'.
                  elt.innerHTML = current_time.toLocaleTimeString();
-
-                    //Вызывать эту функцию каждую секунду.
-                    setTimeout(displayTime, 1000);
             } 
 
 
-           window.onload = displayTime; // Начать отображение времени после загрузки страницы.   
-
+         // Начать отображение времени после загрузки страницы. Вызывать функцию displayTime() с периодом = 1 секунда.  
+         window.onload = setInterval(displayTime, 1000);
             
