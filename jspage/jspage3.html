@@ -14,11 +14,19 @@
       <script type="text/javascript" src = "../jsfiles/url.js" >
       </script> 
 
+        <!-- JavaScript-сценариий для перехода на другую страницу. -->
+      <script type="text/javascript" src = "../jsfiles/goto.js" >
+      </script> 
+
+      <!-- JavaScript-сценариий для получения характеристик экрана. -->
+      <script type="text/javascript" src = "../jsfiles/screen.js" >
+      </script> 
+
       
   </head>
 
     <body>
-      
+
          <h4> Пример на JavaScript: Разборка URL-адреса.</h4>
            
           <!-- Элементы для отображения составляющих URL-адреса.--> 
@@ -37,11 +45,28 @@
                     <p>Поле Search: <span id="search"></span> </p>
 
                       <p>Поле hash: <span id="hash"></span> </p>
-               
-          
+              <hr>
+              
+               <!-- Кнопка для перехода на другую страницу. По нажатию кнопки, формируется событи onclick и
+                    запускается функция gotoPage() из сценария goto.js.-->
+               <p><button onclick="gotoPage('http://oracle.com');">Перейти на сайт Oracle.com</button></p> 
 
+               <hr>
+
+
+                 <!-- Кнопка для получения характеристик экрана. По нажатию кнопки, формируется событи onclick и
+                    запускается функция getScreenProperties() из сценария screen.js.-->
+                  <p><button onclick="getScreenProperties();">Получить характеристики экрана</button></p>           
+               
+              <!-- Элементы для отображения характеристик экрана.-->
+               <p>Высота: <span id="ht"></span> </p>
+               <p>Ширина: <span id="wd"></span> </p>
+               <p>Глубина цветности: <span id="clr"></span> </p>
+
+               <hr>
+          
             <!Перейти на домашнюю страницу на метку "bottom">
-            <a  id="ref" href="../index.html#top">Домашняя страница.</a></li>         
+            <a  id="ref" href="../index.html#top">Домашняя страница.</a></li>        
     	
     </body>
  </html>
