@@ -1,0 +1,34 @@
+<!Страница dialog.html >
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title> Окно диалога</title>
+     <meta charset="utf-8">  <!Кодировка для правильного отображения русских шрифтов.->
+
+     <! Подключение таблицы стилей. >
+     <link href="../css/style_jspage.css" type="text/css" rel="stylesheet" /> 
+
+       <!-- JavaScript-сценариий для создания ркна диалога. -->
+      <script type="text/javascript" src = "../jsfiles/dialog.js" >
+      </script> 
+
+      
+  </head>
+
+    <body>
+          
+          <form>
+                <fieldset id="mfield"></fieldset>  <!-- Поле заполняемое сценарием dialog.js -->
+
+                  <div style="text-align:center">   <!-- Кнопки для закрытия окна диалога -->
+                      
+                     <button onclick="okay()">Ok</button>  <!-- По нажатию кнопки, вызов функции okay() из сценария dialog.js -->                    
+                     <button onclick="cancel()">Cancel</button>  <!-- По нажатию кнопки, вызов функции cancel() из сценария dialog.js -->                    
+
+                  </div>
+          </form>
+    	
+    </body>
+ </html>

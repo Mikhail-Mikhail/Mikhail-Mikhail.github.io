@@ -4,7 +4,7 @@
 
 <html>
   <head>
-    <title>  Сайт на HTML </title> <! Заголовок сайта>
+    <title>  MikleSoft 2017 </title> <! Заголовок сайта>
 
            <meta charset="utf-8">  <!Кодировка для правильного отображения русских шрифтов.->
 
@@ -20,18 +20,25 @@
           <! Подключение таблицы стилей. >
           <link href="css/style_index.css" type="text/css" rel="stylesheet" /> 
 
-       <!-- Функция для отображения текущего времени на языке JavaScript -->
+       <!-- JavaScript-сценарий для отображения текущего времени. -->
        <script type="text/javascript" src = "jsfiles/clock.js" >
+       </script>
+
+       <!-- JavaScript-сценарий для вызова окна диалога. -->
+       <script type="text/javascript" src = "jsfiles/CallDialogScript.js" > 
+       </script>
+
+       <!-- JavaScript-сценарий для вызова окон оповещения. -->
+       <script type="text/javascript" src = "jsfiles/CallAlertScript.js" > 
        </script>
 
   </head>
     <body>
 
      <h1 id="top" class="firmname">Miklesoft</h1>
-
-    <!--Элемент для отображения текущего времени. Используется сценарий clock.js -->
-     <span id="clock">Подождите...</span> 
-   
+     <br>
+     <hr> 
+       
 
       <! Горизонтальное меню для навигации сайта>
       <ul>
@@ -41,14 +48,35 @@
          <li class="navig"> <a href="">About</a> </li>
          <li class="navig"> <a href="">Contacts</a> </li>
          <br> <br>
+         <hr> 
+          
+          <h4> <u>Примеры JavaScript-сценариев:</u></h4>     
+
+         <!--Элемент для отображения текущего времени. Используется сценарий clock.js -->
+         <b>Часы:</b><span id="clock">Подождите...</span> 
+         <br> <br>    
+
+         <li class="navig"> <a href="jspage/jspage.html">Калькулятор</a> </li>
+         <br> <br> 
+
+         <li class="navig"> <a href="jspage/jspage2.html">Отображение текущего времени</a> </li>                                                          
+         <br> <br>
+
+         <li class="navig"> <a href="jspage/jspage3.html">Декомпозиция URL-адреса</a> </li> 
+         <br> <br>
+
+         <li class="navig"><b>Вызов окна диалога:</b> <button onclick="CallDialog()">Открыть окно диалога</button> </li> 
+         <br> <br> 
+
+         <li class="navig"><b>Вызов окон оповещения:</b> <button onclick="CallAlert()">Функция Alert()</button>
+                                                         <button onclick="CallPrompt()">Функция Prompt()</button>
+                                                         <button onclick="CallConfirm()">Функция Confirm()</button> </li> 
+          <span id="MyString"></span> 
+
+         <br> <br> <hr>
+
          <li class="navig"> <a href="gridpage/gridpage.html">Пример использования стилей Page 960.GS</a> </li>
-         <br> <br>
-         <li class="navig"> <a href="jspage/jspage.html">ПримерJavaScript №1</a> </li>
-         <br> <br>
-         <li class="navig"> <a href="jspage/jspage2.html">Пример JavaScript №2: Отображение текущего 
-                                                           времени.</a> </li> 
-                                                            <br> <br>
-         <li class="navig"> <a href="jspage/jspage3.html">Пример JavaScript №3: Разборка URL-адреса.</a> </li> 
+         <br> 
       </ul>
       
       <hr>
@@ -66,12 +94,11 @@
             <br>Индексы: 2<sup>8</sup>=256, D<sub>i</sub>=4</p>
          <hr>
           <p>Новый абзац.<strong> Внимание <del>это</del> блок Strong!!!</strong> <em>Это блок <q>em</q>.</em></p> 
-          <br>
+
           <p><abbr title="Professor">Prof</abbr> Stephen
                    Hawking is a theoretical physicist and
                    cosmolgist.</p> 
-           <br> <! Перейти на новую строку>
-
+          
               <ol> <! Списки с индексами>
                  <li>Элемент 1</li>
                  <li>Элемент 2</li>
