@@ -65,13 +65,32 @@
          <li class="navig"> <a href="jspage/jspage3.html">Декомпозиция URL-адреса</a> </li> 
          <br> <br>
 
-         <li class="navig"><b>Вызов окна диалога:</b> <button onclick="CallDialog()">Открыть окно диалога</button> </li> 
+         <li class="navig"><b>Вызов окна диалога:</b> <button onclick="CallDialog()">Открыть окно диалога</button> 
+         </li> 
          <br> <br> 
 
          <li class="navig"><b>Вызов окон оповещения:</b> <button onclick="CallAlert()">Функция Alert()</button>
                                                          <button onclick="CallPrompt()">Функция Prompt()</button>
-                                                         <button onclick="CallConfirm()">Функция Confirm()</button> </li> 
-          <span id="MyString"></span> 
+                                                         <button onclick="CallConfirm()">Функция Confirm()</button> 
+                                                         </li>
+         <span id="MyString"></span>   
+
+          <br> <br>                      
+
+          <li class="navig"><b>Работа с окнами:</b>   <button onclick="CallOpen()">Открыть новое окно</button>
+                                                      <button onclick="CallClose()">Закрыть новое окно</button>
+         </li>
+         <br><br>
+
+         <li class="navig"><b>Закрыть окно:</b> <button onclick="CallCurrentClose()">Закрыть это окно</button>
+         </li>
+
+         <br><br>
+
+         <li class="navig"><b>Закрыть карту Google:</b> <button onclick="CallFrameClose()">Закрыть карту Google</button>
+         </li>
+
+          
 
          <br> <br> <hr>
 
@@ -461,10 +480,11 @@
             
               <!Вставка на своей странице уменьшенного варианта другой страницы, например карты Google :>
             <h2> Карта Google: </h2> 
-            <iframe width="450" height="350" src="http://maps.google.co.uk/maps?q=moma+new+york &amp;output=embed"> 
+            <iframe  id="gmap" width="450" height="350" 
+                     src="http://maps.google.co.uk/maps?q=moma+new+york &amp;output=embed"> 
             </iframe>
               
-              <hr>
+              <hr> 
             
               <!Отображение специальных символов:>
               <h4> Отображение специальных символов </h4>
