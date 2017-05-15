@@ -86,18 +86,4 @@
    }
  //--------------------------- ------------------------------------------------------------   
 
-  //Функция закрытия фрейма(например карты Google), встроенного в окне. 
   
-   function CallFrameClose() {
-   
-  // var elt = document.getElementById("MyString");
-   var elt = document.getElementById("gmap");
-   var win = elt.contentWindow;
-   //win.width = 200;
-
-   //elt.innerHTML="Map";
-
-    //Закрыть фрейм карты Google.
-   // window.frames["gmap"].close();
-   }
- //--------------------------- ------------------------------------------------------------         

@@ -1,0 +1,49 @@
+<!Страница search.html >
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title> Поиск HTML-элементов</title>
+     <meta charset="utf-8">  <!Кодировка для правильного отображения русских шрифтов.->
+
+     <! Подключение таблицы стилей. >
+     <link href="../css/style_jspage.css" type="text/css" rel="stylesheet" /> 
+
+       <!-- JavaScript-сценариий для разборки URL-адреса. -->
+      <script type="text/javascript" src = "../jsfiles/search.js" >
+      </script> 
+     
+  </head>
+
+    <body>
+
+         <h4> Пример на JavaScript: Поиск HTML-элементов.</h4>
+         <hr>
+           
+           <p> Это параграф номер 0. </p> 
+           <p> Это параграф номер 1. </p> 
+           <p> Это параграф номер 2. </p> 
+           <p> Это параграф номер 3. </p> 
+           <p> Это параграф номер 4. </p> 
+           <p> Это параграф номер 5. </p> 
+
+           <button onclick="search()">Заменить текст</button>
+
+              <hr>
+
+                 <p id="par"> Это параграф в котором содержаться элементы 'span':
+                     <span>Первый элемент Span.</span>
+                      <span>Второй элемент Span.</span>
+                       <span>Третий элемент Span.</span>
+                 </p>
+
+                    <button onclick="spanSearch()">Заменить текст в элементах span</button>
+            
+              <hr>
+          
+            <!Перейти на домашнюю страницу на метку "bottom">
+            <a  id="ref" href="../index.html#top">Домашняя страница.</a></li>        
+    
+    </body>
+ </html>
