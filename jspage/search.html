@@ -20,7 +20,7 @@
 
          <h4> Пример на JavaScript: Поиск HTML-элементов.</h4>
          <hr>
-           
+            В этом параграфе поиск элементов выполняется методом "getElementsByTagName()":
            <p> Это параграф номер 0. </p> 
            <p> Это параграф номер 1. </p> 
            <p> Это параграф номер 2. </p> 
@@ -32,7 +32,7 @@
 
               <hr>
 
-                 <p id="par"> Это параграф в котором содержаться элементы 'span':
+                 <p id="par"> Поиск элементов выполняется методом "getElementsByTagName()":
                      <span>Первый элемент Span.</span>
                       <span>Второй элемент Span.</span>
                        <span>Третий элемент Span.</span>
@@ -41,6 +41,28 @@
                     <button onclick="spanSearch()">Заменить текст в элементах span</button>
             
               <hr>
+
+
+                     <div id="par2"> В этом параграфе поиск элементов выполняется методом "getElementsByClassName()":
+                       <p class="txt"> Элемент 1 с атрибутом class.</p>
+                       <p class="txt"> Элемент 2 с атрибутом class.</p>
+                       <p class="txt"> Элемент 3 с атрибутом class.</p>
+                    </div>
+
+                      <button onclick="classSearch()">Заменить текст</button>
+            
+              <hr>
+
+                    <div id="par3"> В этом параграфе поиск элементов выполняется методом "querySelectorAll()":
+                       <p class="edit"> Элемент 1.</p>
+                       <p id="myline"> Элемент 2.</p>
+                       <p id="sp"> <span> Элемент 3.</span></p>
+                    </div>
+
+                      <button onclick="SelectorAllSearch()">Заменить текст</button>
+            
+              <hr>
+          
           
             <!Перейти на домашнюю страницу на метку "bottom">
             <a  id="ref" href="../index.html#top">Домашняя страница.</a></li>        
