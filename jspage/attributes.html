@@ -1,0 +1,35 @@
+<!--Страница attributes.html -->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title> Атрибуты HTML-элементов</title>
+     <meta charset="utf-8">  <!Кодировка для правильного отображения русских шрифтов.->
+
+     <!-- Подключение таблицы стилей. -->
+     <link href="../css/style_jspage.css" type="text/css" rel="stylesheet" /> 
+
+       <!-- JavaScript-сценариий. -->
+      <script type="text/javascript" src = "../jsfiles/attributes.js" >
+      </script> 
+     
+  </head>
+
+    <body id="bodyTag"> 
+
+         <h4> Пример на JavaScript: Атрибуты HTML-элементов.</h4>
+
+            <p id="txt"></p> 
+
+             <button onclick="ChangeOnclickAttr()"> Изменить назначение кнопки</button>
+
+               <button id="myBtn" data-mystr = "1 2 3 4 5 6 7 8 9 10"  onclick="WriteText('Это текстовая строка.')"> Отобразить текст</button>
+
+              <br> 
+              <br> 
+
+               <!Перейти на домашнюю страницу на метку "bottom"> 
+               <a  id="ref" href="../index.html#top">Домашняя страница.</a></li>    
+    </body>
+ </html>
