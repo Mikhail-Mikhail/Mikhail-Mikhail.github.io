@@ -94,8 +94,15 @@
   <!--                                                                      -->
 
     <servlet>
-        <servlet-name>ServletColorGet</servlet-name>
-        <servlet-class>ServletColorGet</servlet-class>
+        <!-- Здесь вводится имя для пользовательского сервлета.             -->
+        <!--  Это имя может быть любым. Такое же имя сервлета нужно         -->
+        <!--  указать в секции <servlet-mapping>, см. ниже в файле.         -->
+        <servlet-name>MyServlet</servlet-name>   
+
+        <!-- Здесь вводится имя класса сервлета, с указанием пакета.          -->
+        <!-- Класс сервлета должен расологаться в папке:                      -->
+        <!-- ../webapps/имя_приложения/WEB-INF/classes/имя_пакета/файл_класса -->
+        <servlet-class>servletcolorget.ServletColorGet</servlet-class>
         <init-param>
             <param-name>debug</param-name>
             <param-value>0</param-value>
@@ -357,8 +364,16 @@
 
     <!-- The mapping for the default servlet -->
     <servlet-mapping>
-        <servlet-name>ServletColorGet</servlet-name>
-        <url-pattern>/servlets/doGetServlet/WEB-INF/classes/servletcolorget/</url-pattern>
+
+         <!-- Здесь вводится имя для пользовательского сервлета.           -->
+         <!--  Это имя может быть любым. Такое же имя сервлета нужно       -->
+         <!--  указать в секции <servlet>, см. выше в файле.               -->
+        <servlet-name>MyServlet</servlet-name>
+
+        <!-- Здесь вводится окончание URL-адреса для запуска сервлета из браузера. -->
+        <!-- Сервлет будет вызываться так:                                         -->
+        <!-- http://127.0.0.1:8081/папка_приложения/servlet_color/                       -->
+        <url-pattern>/servlet_color/</url-pattern>
     </servlet-mapping>
 
     <!-- The mappings for the JSP servlet -->
