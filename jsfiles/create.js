@@ -13,7 +13,7 @@
     
    function createTxtBtn() {
   
-    var button, par, text, bdy;
+    var button, par, text, bdy, newbtn, btntext;
 
       //Найти элемент(кнопку) с id="btn1".     
       button = document.getElementById("btn1");
@@ -33,6 +33,64 @@
                 //Вставить текстовый элемент в параграф.
                 par.appendChild(text);
 
-  }
- 
+
+                   //Создать новую кнопку: <button> </button>
+                   newbtn = document.createElement('button');
+
+                     //Вставить новую кнопку перед существующей кнопкой.
+                     bdy.insertBefore(newbtn, button);
+
+                      //Создать текстовый элемент - название кнопки.
+                      btntext = document.createTextNode("Изменить текст");
+
+                        //Вставить текстовый элемент в новую кнопку.
+                        newbtn.appendChild(btntext);
+                       
+                            //Назначить обработчик события нажатия кнопки.
+                            newbtn.onclick = function(){
+                                                         par.innerHTML = "Текст изменен!!!";
+                                                       };      
+          // Изменить название первой кнопки.
+          button.innerHTML = "Удалить текст";
+
+          //Назначить обработчик события нажатия первой кнопки.
+          button.onclick = function(){
+                                      bdy.removeChild(par); //Удалить созданный элемент par.
+                                     };   
+   } 
+//---------------------------------------------------------------------------------------
+   
+   
+   //Функция события кнопки "Сделать текст жирным".
+    
+   function btnPressed() {
+
+     var vp1;
+
+       //Найти элемент параграфа с id="p1".     
+       vp1 = document.getElementById("p1");
+
+         //Найти элемент параграфа с id="p2".     
+         vp2 = document.getElementById("p2");
+
+           //Сделать текст параграфа 1 жирным.
+           boldTxt(vp1);
+
+            //Сделать текст параграфа 2 жирным.
+            boldTxt(vp2);
+   }
+//---------------------------------------------------------------------------------------
+
+   //Функция замены HTML-элемента другим элементом(делает текст жирным).
+    
+   function boldTxt(n) {
+
+    var parent = n.parentNode; //Найти родительский элемент для элемента n.
+
+     var b = createElement("b"); //Создать элемент <b></b>.
+       
+       parent.replaceChild(b, n); // Заменить элемент n элементом <b>.
+  
+        b.appendChild(n); // Сделать n дочерним элементом элемента <b>.
+   }
 //---------------------------------------------------------------------------------------
