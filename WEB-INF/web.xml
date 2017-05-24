@@ -115,6 +115,50 @@
     </servlet>
 
 
+    <servlet>
+        <!-- Здесь вводится имя для пользовательского сервлета.             -->
+        <!--  Это имя может быть любым. Такое же имя сервлета нужно         -->
+        <!--  указать в секции <servlet-mapping>, см. ниже в файле.         -->
+        <servlet-name>MyServlet_AddCookie</servlet-name>   
+
+        <!-- Здесь вводится имя класса сервлета, с указанием пакета.          -->
+        <!-- Класс сервлета должен расологаться в папке:                      -->
+        <!-- ../webapps/имя_приложения/WEB-INF/classes/имя_пакета/файл_класса -->
+        <servlet-class>servletaddcookie.ServletAddCookie</servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>0</param-value>
+        </init-param>
+        <init-param>
+            <param-name>listings</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+
+    <servlet>
+        <!-- Здесь вводится имя для пользовательского сервлета.             -->
+        <!--  Это имя может быть любым. Такое же имя сервлета нужно         -->
+        <!--  указать в секции <servlet-mapping>, см. ниже в файле.         -->
+        <servlet-name>MyServlet_GetCookie</servlet-name>   
+
+        <!-- Здесь вводится имя класса сервлета, с указанием пакета.          -->
+        <!-- Класс сервлета должен расологаться в папке:                      -->
+        <!-- ../webapps/имя_приложения/WEB-INF/classes/имя_пакета/файл_класса -->
+        <servlet-class>servletgetcookie.ServletGetCookie</servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>0</param-value>
+        </init-param>
+        <init-param>
+            <param-name>listings</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+
   <!-- The JSP page compiler and execution servlet, which is the mechanism  -->
   <!-- used by Tomcat to support JSP pages.  Traditionally, this servlet    -->
   <!-- is mapped to the URL pattern "*.jsp".  This servlet supports the     -->
@@ -372,9 +416,39 @@
 
         <!-- Здесь вводится окончание URL-адреса для запуска сервлета из браузера. -->
         <!-- Сервлет будет вызываться так:                                         -->
-        <!-- http://127.0.0.1:8081/папка_приложения/servlet_color/                       -->
+        <!-- http://127.0.0.1:8081/папка_приложения/servlet_color/                 -->
         <url-pattern>/servlet_color/</url-pattern>
     </servlet-mapping>
+
+    <!-- The mapping for the default servlet -->
+    <servlet-mapping>
+
+         <!-- Здесь вводится имя для пользовательского сервлета.           -->
+         <!--  Это имя может быть любым. Такое же имя сервлета нужно       -->
+         <!--  указать в секции <servlet>, см. выше в файле.               -->
+        <servlet-name>MyServlet_AddCookie</servlet-name>
+
+        <!-- Здесь вводится окончание URL-адреса для запуска сервлета из браузера. -->
+        <!-- Сервлет будет вызываться так:                                         -->
+        <!-- http://127.0.0.1:8081/папка_приложения/servlet_AddCookie/             -->
+        <url-pattern>/servlet_AddCookie/</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- The mapping for the default servlet -->
+    <servlet-mapping>
+
+         <!-- Здесь вводится имя для пользовательского сервлета.           -->
+         <!--  Это имя может быть любым. Такое же имя сервлета нужно       -->
+         <!--  указать в секции <servlet>, см. выше в файле.               -->
+        <servlet-name>MyServlet_GetCookie</servlet-name>
+
+        <!-- Здесь вводится окончание URL-адреса для запуска сервлета из браузера. -->
+        <!-- Сервлет будет вызываться так:                                         -->
+        <!-- http://127.0.0.1:8081/папка_приложения/servlet_GetCookie/             -->
+        <url-pattern>/servlet_GetCookie/</url-pattern>
+    </servlet-mapping>
+
 
     <!-- The mappings for the JSP servlet -->
     <servlet-mapping>
