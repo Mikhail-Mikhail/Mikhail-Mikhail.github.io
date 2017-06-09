@@ -94,3 +94,22 @@
           b.appendChild(n); // Сделать n дочерним элементом элемента <b>.
    }
 //---------------------------------------------------------------------------------------
+
+   //Функция перестановки местами HTML-элементов. Использует объект DocumentFragment.
+    
+   function changePlace() {
+
+      //Создать пустой объект DocumentFragment.
+      var fr = document.createDocumentFragment();
+
+        //Найти элемент <div> с id="df".     
+        var el = document.getElementById("df");
+
+          //Копировать все дочерние элементы блока <div> в 
+          //пустой объект DocumentFragment в обратном порядке.
+          while(el.lastChild) fr.appendChild(el.lastChild);
+       
+            //Вставить содержимое фрагмента в исходный блок <div>.
+            el.appendChild(fr); 
+   }
+//---------------------------------------------------------------------------------------   
