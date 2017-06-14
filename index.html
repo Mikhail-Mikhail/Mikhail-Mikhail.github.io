@@ -32,6 +32,10 @@
        <script type="text/javascript" src = "jsfiles/CallAlertScript.js" > 
        </script>
 
+        <!-- JavaScript-сценарий, вставка и чтение в(из) HTML-элементы(ов). -->
+        <script type="text/javascript" src = "jsfiles/scroll.js" > 
+        </script>
+
   </head>
     <body>
 
@@ -102,8 +106,14 @@
 
                     <li class="navig"> <a href="jspage/create.html">Создание, вставка и удаление HTML-элементов и
                                                                      текстовых узлов документа</a> </li> 
-                     <br> <br> <hr>
+                     <br> <br>
 
+                        <button onclick="ScrollDoc()">Сценарий - Прокрутить страницу вниз</button>
+                          <br> <br> 
+
+                            <button onclick="ScrollToElem('gmap')">Сценарий - Прокрутить странцу до карты Google
+                            </button>
+                              <br> <br> <hr>
 
          <li class="navig"> <a href="gridpage/gridpage.html">Пример использования стилей Page 960.GS</a> </li>
          <br> 
