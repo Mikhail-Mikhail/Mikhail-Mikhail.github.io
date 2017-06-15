@@ -1,0 +1,44 @@
+<!-- Страница forms.html -->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title> HTML-формы</title>
+     <meta charset="utf-8">  <!--Кодировка для правильного отображения русских шрифтов.-->
+
+     <!-- Подключение таблицы стилей. -->
+     <link href="../css/style_jspage.css" type="text/css" rel="stylesheet" /> 
+
+       <!-- JavaScript-сценариий. -->
+      <script type="text/javascript" src = "../jsfiles/forms.js" >
+      </script> 
+     
+  </head>
+
+    <body> 
+
+         <h4> Пример на JavaScript: Сценарии по работе с HTML-формами.</h4>
+           <hr>
+
+            <!-- Радио-кнопки --> 
+           <form id="mf" action="">
+             <p>Выберите режим:
+               <br />
+                 <input type="radio" name="regime" value="r1" checked="checked" /> Режим 1
+                 <input type="radio" name="regime" value="r2" /> Режим 2
+                 <input type="radio" name="regime" value="r3" /> Режим 3
+             </p>
+           </form>
+
+                 <button onclick="ShowCheckedRadio()">Определить выбранный режим</button>
+                     
+                   <p id="inf"></p>
+
+                     <br> 
+                      <hr>
+
+                <!--Перейти на домашнюю страницу на метку "bottom"--> 
+                <a  id="ref" href="../index.html#top">Домашняя страница.</a></li>    
+    </body>
+ </html>
