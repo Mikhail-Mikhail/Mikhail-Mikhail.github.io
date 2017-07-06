@@ -20,8 +20,19 @@
 
          <h4 id="elem_h4"> Пример на JavaScript: Сценарии для стилей CSS.</h4>
 
-           
-             <button  onclick="changeColor()"> Поменять цвет</button>
+
+          <!-- Блок, стили отображения которого изменяются по нажатию кнопки.-->
+          <div id="mbox" style= " height: 100px; width: 300px;  border-style: solid;
+                border-width: 1px 1px 1px 1px; 
+                padding: 4px;
+                background-color: #bbbbaa; ">
+            <p> Нажмите кнопку для изменения стилей этого элемента</p>
+          </div>  
+              
+              <br> 
+               <br> 
+            
+             <button  onclick="changeColor('mbox')"> Изменить стили</button>
                                  
                <br> 
                <br> 
