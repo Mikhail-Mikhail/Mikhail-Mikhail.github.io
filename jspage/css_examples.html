@@ -22,14 +22,15 @@
 
 
           <!-- Блок, стили отображения которого изменяются по нажатию кнопки.-->
-          <div id="mbox" style= " height: 100px; width: 300px;  border-style: solid;
-                border-width: 1px 1px 1px 1px; 
-                padding: 4px;
-                background-color: #bbbbaa; ">
+          <div id="mbox" style= " height: 100px; 
+                                  width: 300px;  
+                                  border-style: solid;
+                                  border-width: 1px 1px 1px 1px; 
+                                  padding: 4px;
+                                  background-color: #bbbbaa; ">
             <p> Нажмите кнопку для изменения стилей этого элемента</p>
           </div>  
               
-              <br> 
                <br> 
             
              <button  onclick="changeColor('mbox')"> Изменить стили</button>
@@ -37,6 +38,23 @@
                <br> 
                <br> 
                  <hr>
+
+                 <!-- Блок, положение которого изменяется по нажатию кнопки.-->
+                 <div id="anim" style= " height: 70px; 
+                                         width: 70px;  
+                                         border-style: solid;
+                                         border-width: 1px 1px 1px 1px; 
+                                         padding: 4px;
+                                         background-color: #bbbbaa; ">
+                  </div>  
+              
+                   <br> 
+                          
+                    <button  onclick="shake('anim')"> Запуск анимации</button>
+                                 
+                     <br> 
+                      <br> 
+                        <hr>
 
                 <!--Перейти на домашнюю страницу на метку "bottom"--> 
                 <a  id="ref" href="../index.html#top">Домашняя страница.</a></li>    
