@@ -7,12 +7,13 @@
     <title> Сценарии для стилей(CSS)</title>
      <meta charset="utf-8">  <!--Кодировка для правильного отображения русских шрифтов.-->
 
-     <!-- Подключение таблицы стилей. -->
-     <link href="../css/style_jspage.css" type="text/css" rel="stylesheet" /> 
-
        <!-- JavaScript-сценариий. -->
       <script type="text/javascript" src = "../jsfiles/css_examples.js" >
       </script> 
+
+      <!-- Подключение таблицы стилей. -->
+      <link id="mycss"  href="../css/style_jspage.css" type="text/css" rel="stylesheet" /> 
+
      
   </head>
 
@@ -63,8 +64,30 @@
                                <button  onclick="scale('pr1', 2)"> Изменить размер шрифта</button>
                                  
                                   <br> 
-                                  <br> 
-                                    <hr>
+                                   <br> 
+                                      <hr>
+                                       <br>
+
+
+                      <p id="pr1"> Нажмите кнопку чтобы отключить таблицу стилей для этой страницы</p>
+                          
+                        <button  onclick="DisableCss(true)"> Отключить CSS</button>
+                         <button  onclick="DisableCss(false)"> Включить CSS</button>
+                                 
+                          <br> 
+                           <br> 
+                             <hr>  
+                               <br>      
+
+                       <p id="pr1"> Нажмите кнопку чтобы изменить таблицу стилей для этой страницы</p>
+                          
+                        <button  onclick="ModifyCss(true)"> Изменить CSS</button>
+                         <button  onclick="ModifyCss(false)"> Восстановить CSS</button>
+                                 
+                          <br> 
+                           <br> 
+                             <hr>  
+                               <br>              
 
                 <!--Перейти на домашнюю страницу на метку "bottom"--> 
                 <a  id="ref" href="../index.html#top">Домашняя страница.</a></li>    
