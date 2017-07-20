@@ -125,7 +125,7 @@ function shake(id) {
      if(modify) {
        //Добавить новую строку стилей в начало таблицы(2-й параметр=0).
        //Изменить цвет всех параграфов. 
-       ss.insertRule("p {color: #ee3e80;}", 0);
+       ss.insertRule("p {color: #ee3e80;}", 0);      
      }
      else {  //Восстановить первоначальную таблицу стилей.
            //Удалить ранее вставленную строку стилей для параграфов.
@@ -134,4 +134,39 @@ function shake(id) {
           }  
  }
 //---------------------------------------------------------------------------------------
-   
+
+ //Функция создания таблицы стилей.
+
+ function CreateCss(create) {
+
+   var head;
+   var styleElt;
+
+     //Создать таблицу стилей.
+     if(create) {
+
+      //Найти элемент <head>.
+      head = document.getElementsByTagName("head")[0];
+
+       //Создать новый элемент <style>.
+       styleElt = document.createElement('style'); 
+
+        // Вставить элемент <style> в <head>.
+        head.appendChild(styleElt); 
+        
+         //Добавить свойство в элемент <style>. Изменить цвет всех параграфов.
+         styleElt.innerHTML = "p {color: blue;}";
+     }
+     else {  //Удалить созданную таблицу стилей.
+
+           //Найти элемент <head>.
+           head = document.getElementsByTagName("head")[0];
+
+            //Найти элемент <style>.
+            styleElt = document.getElementsByTagName("style")[0];
+               
+               //Удалить созданный элемент <style>.
+               head.removeChild(styleElt); 
+          }  
+ }
+//---------------------------------------------------------------------------------------   
