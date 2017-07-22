@@ -7,13 +7,11 @@
     <title> Сценарии для обработки событий</title>
      <meta charset="utf-8">  <!--Кодировка для правильного отображения русских шрифтов.-->
 
-       <!-- JavaScript-сценариий. -->
-      <script type="text/javascript" src = "../jsfiles/events.js" >
-      </script> 
-
       <!-- Подключение таблицы стилей. -->
       <link id="mycss"  href="../css/style_jspage.css" type="text/css" rel="stylesheet" /> 
-
+     
+        <!-- JavaScript-сценариий. -->
+        <script type="text/javascript" src = "../jsfiles/events.js" > </script> 
      
   </head>
 
@@ -24,9 +22,33 @@
              
              <p> Кнопка с несколькими обработчиками событий. Нажмите кнопку для их запуска. </p>
               
-              <button  onclick="FirstListener()"> Запустить обработчики</button>
+              <button id="btn1"> Запустить обработчики событий</button>
         
-                <br> <hr> <br> 
+                <br> <br> <hr>  
+
+                  <!-- Пример "всплытия" событий. --> 
+
+                  <form onclick="Listener('Это обработчик события кнопки на уровне элемента <form>')">  
+
+                     <div onclick="Listener('Это обработчик события кнопки на уровне элемента <div>')">
+
+                       <p> Пример "всплытия" событий.</p>
+
+                          <p onclick="Listener('Это обработчик события кнопки на уровне элемента <p>')">
+
+                             <button onclick="Listener('Это обработчик события кнопки на уровне элемента <button>')">   Сгенерировать событие</button>
+                          </p>
+                     </div>
+                  </form>  
+
+                   <hr>     
+
+                    <!-- Пример отмены события. -->  
+                    
+                      <p> Пример отмены события.</p>
+                       <!--Перейти на домашнюю страницу на метку "bottom"--> 
+                       <a  id="ref" href="../index.html#top" onclick="CancelEvent(event)">Перейти на домашнюю страницу.</a></li> 
+                      <hr> <br>             
 
                 <!--Перейти на домашнюю страницу на метку "bottom"--> 
                 <a  id="ref" href="../index.html#top">Домашняя страница.</a></li>    

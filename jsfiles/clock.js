@@ -1,3 +1,4 @@
+            
             //Функция на языке JavaScript.
 
              "use strict" //Использовать строгий режим ECMAScript 5, если браузер поддерживает его.
@@ -7,7 +8,7 @@
               
               //Найти элемент с id="clock". 
               var elt = document.getElementById("clock");
-                                             
+                              
                //Создать объект класса Date.
                var current_time = new Date();
             
