@@ -48,7 +48,25 @@
                       <p> Пример отмены события.</p>
                        <!--Перейти на домашнюю страницу на метку "bottom"--> 
                        <a  id="ref" href="../index.html#top" onclick="CancelEvent(event)">Перейти на домашнюю страницу.</a></li> 
-                      <hr> <br>             
+                      <hr>      
+
+                    <!-- Пример буксировки элемента. -->  
+                    
+                        <!-- Буксируемый элемент-->
+                        <div style="position:absolute; left:30px; top:350px; width:150px;
+                                    background-color: white; border: solid black;">
+                          <!-- "Заголовок" окна. -->
+                           <div style="background-color: gray; border-bottom: dotted black;
+                              padding: 3px; font-family: sans-serif; font-weight: bold;"
+                              onmousedown="drag(this.parentNode, event);"> <!-- Вызов функции буксировки элемента.-->
+                              Перетащи меня!
+                           </div> 
+                            
+                                <!-- Содержимое буксируемого элемента -->
+                                <p>Пример буксировки элемента.</p>        
+                        </div> 
+
+                         <br> <br> <br> <br> <br> <br> <br> <hr>                     
 
                 <!--Перейти на домашнюю страницу на метку "bottom"--> 
                 <a  id="ref" href="../index.html#top">Домашняя страница.</a></li>    
