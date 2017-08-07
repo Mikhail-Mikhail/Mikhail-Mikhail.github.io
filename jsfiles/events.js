@@ -67,8 +67,7 @@
   //Функция буксировки элемента.
 
   function drag(elementToDrag, event) {
-    //alert("OK!");
-
+   
     //Получить первоначальные координаты буксируемого элемента.
     var origX = elementToDrag.offsetLeft;
     var origY = elementToDrag.offsetTop;
@@ -77,7 +76,37 @@
       var startX = event.clientX;
       var startY = event.clientY;
 
-    //alert(startX);
 
+       // Найти расстояние между точкой события mousedown и верхним левым углом элемента.
+       var deltaX = startX - origX;
+       var deltaY = startY - origY;
+
+         // Зарегистрировать обработчики событий mousemove и mouseup,
+        // которые последуют за событием mousedown.
+        if(document.addEventListener) { 
+          document.addEventListener("mousemove", moveHandler, true);
+          document.addEventListener("mouseup", upHandler, true);   
+        }
+
+         // Это событие обработано и не должно передаваться другим обработчикам.
+         if(event.stopPropagation) event.stopPropagation();
+
+            
+           //Обработчик события "mousemove".
+           function moveHandler(e) {
+              elementToDrag.style.left = (e.clientX - deltaX) + "px";
+              elementToDrag.style.top = (e.clientY - deltaY) + "px";
+             
+               //Прервать дальнейшее распространение события.
+              if(e.stopPropagation) e.stopPropagation(); 
+           }
+
+
+             //Обработчик события "mouseup".
+             function upHandler(e) {
+              //Удалить обработчики событий "mousemove" и "mouseup".
+              document.removeEventListener("mouseup", upHandler, true);
+              document.removeEventListener("mousemove", moveHandler, true);
+             }
   }
  //--------------------------------------------------------------------------------------
