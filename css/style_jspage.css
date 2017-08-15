@@ -7,6 +7,15 @@
                                                             использовать два варианта задания цвета.*/
               }
 
+         
+         /* Стили для элемента часов с id=clock на странице events.html.*/
+         #clock { 
+                    font: bold 20pt sans; 
+                    background: #ddf;
+                    padding: 10px;
+                    border: solid black 2px; 
+                    border-radius: 10px;
+                  }
       
 
             

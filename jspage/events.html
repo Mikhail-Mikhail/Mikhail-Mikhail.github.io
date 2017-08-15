@@ -10,8 +10,10 @@
       <!-- Подключение таблицы стилей. -->
       <link id="mycss"  href="../css/style_jspage.css" type="text/css" rel="stylesheet" /> 
      
-        <!-- JavaScript-сценариий. -->
+        <!-- Подключить файлы JavaScript-сценариев. -->
+        <script type="text/javascript" src = "../jsfiles/clock.js" > </script> 
         <script type="text/javascript" src = "../jsfiles/events.js" > </script> 
+       
      
   </head>
 
@@ -79,7 +81,18 @@
                                    <p>Наведите мышь на прямоугольник и повращайте колесико.</p>   
                                 </div> 
   
-                         <br> <br> <br> <br> <br> <br> <br> <br> <hr>                          
+                         <br> <br> <br> <br> <br> <br> <br> <br> <hr>  
+
+
+            <!-- Пример буксировки данных о текущем времени. -->  
+
+             <!--Элемент для отображения текущего времени. -->
+             <p> Пример буксировки данных. Перетащите часы в текстовое окно.</p>
+               <p> <span id="clock">Подождите...</span> </p>
+              
+                  <textarea  cols=60 rows=5></textarea> <!--Текстовое окно для приема данных. -->                     
+                              
+              <br>  <hr>                          
 
                 <!--Перейти на домашнюю страницу на метку "bottom"--> 
                 <a  id="ref" href="../index.html#top">Домашняя страница.</a></li>    
