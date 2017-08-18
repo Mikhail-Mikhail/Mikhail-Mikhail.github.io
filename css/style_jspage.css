@@ -8,14 +8,31 @@
               }
 
          
-         /* Стили для элемента часов с id=clock на странице events.html.*/
-         #clock { 
-                    font: bold 20pt sans; 
-                    background: #ddf;
-                    padding: 10px;
-                    border: solid black 2px; 
-                    border-radius: 10px;
-                  }
-      
+             /* Стили для элемента часов с id=clock на странице events.html.*/
+             #clock  { 
+                      font: bold 20pt sans; 
+                      background: #ddf;
+                      padding: 10px;
+                      border: solid black 2px; 
+                      border-radius: 10px;
+                    }
+        
 
-            
+               /* Стили для элемента <span> с id=MyString на странице events.html.*/
+               #MyString { 
+                           font: bold 11pt sans;                     
+                         } 
+      
+                 /* Стили для элемента списка с class="DropList" на странице events.html.*/
+                .DropList {
+                	       font: bold 11pt sans; 
+                          }
+
+                  /* Стили для элемента списка с class="DropList" когда в него сбрасывается буксируемая строка на 
+                     странице events.html.*/
+                  .DropListActive {
+                	                font: bold 11pt sans; 
+                	                border: solid red 2px;                                   
+                	                border-radius: 10px;
+                                    width: 100px;
+                                  }         
