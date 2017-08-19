@@ -26,6 +26,7 @@
                  /* Стили для элемента списка с class="DropList" на странице events.html.*/
                 .DropList {
                 	       font: bold 11pt sans; 
+                	       width: 100px;
                           }
 
                   /* Стили для элемента списка с class="DropList" когда в него сбрасывается буксируемая строка на 
