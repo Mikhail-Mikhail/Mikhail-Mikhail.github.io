@@ -28,6 +28,8 @@
      DragClock();
 
      DragAndDropString();
+
+     KeyboardFilter();
    }
 
  //--------------------------------------------------------------------------------------
@@ -309,4 +311,52 @@ function ischild(a,b) {
  
  return false;
 }
+//--------------------------------------------------------------------------------------
+
+ // Фильтрация ввода данных с клавиатуры.
+
+ function KeyboardFilter(){
+
+   // Найти окно ввода текста.
+   var elt = document.getElementById("TextField");
+
+    // Найти элемент сообщения об ошибке.
+    var Msg = document.getElementById("ErrMsg");
+
+    // Зарегистрировать обработчик события "textInput" клавиатуры для элемента ввода текста.
+   elt.addEventListener("textInput", filter, false);
+
+
+      // Обработчик событий "textinput" клавиатуры.
+      function filter(e){
+
+        var text = null;
+
+         // Получить введенные символы.
+         text = e.data;
+
+          //Получить значение атрибута "data-allowed-chars" для элемента ввода текста. 
+          // В нем содержатся разрешенные для ввода символы.         
+          var allowed = elt.getAttribute("data-allowed-chars");
+
+
+            for(var i = 0; i < text.length; i++) {
+              //Получить текущий введенный символ.
+              var c = text.charAt(i);
+
+               // Если введенного символа нет в списке разрешенных символов для ввода. 
+               if (allowed.indexOf(c) == -1) {
+                 // Сделать видимым элемент сообщения об ошибке.
+                 Msg.style.visibility="visible";
+
+                   // Отменить вставку этого символа в окно ввода.
+                   if (e.preventDefault) e.preventDefault();
+                   if (e.returnValue) e.returnValue = false;
+                   return false;
+               }
+            }   
+         // Если символ оказался допустимым, то скрыть элемент сообщения об ошибке.
+         Msg.style.visibility="hidden";       
+      }
+ }
 //--------------------------------------------------------------------------------------

@@ -107,7 +107,25 @@
                     <li>Строка 2.</li>
                   </ol>
 
-                  <br>  <hr>                    
+                  <br>  <hr>          
+
+
+
+              <!-- Пример обработки событий клавиатуры. -->  
+
+                 <p> Пример обработки событий клавиатуры. В это окно можно ввести только цифры, иначе
+                     будет выдано сообщение об ошибке.</p>  
+
+                   <p>Введите любой символ:
+                     <input type="text" id="TextField" size="15" maxlength="30" 
+                            data-allowed-chars="0123456789"   
+                            data-messageid="ErrMsg"/>
+
+
+                    <span id="ErrMsg" style="color:red; visibility:hidden">Можно вводить только цифры!!!</span>
+                  </p>
+
+                  <br>  <hr>                     
 
                 <!--Перейти на домашнюю страницу на метку "bottom"--> 
                 <a  id="ref" href="../index.html#top">Домашняя страница.</a></li>    
