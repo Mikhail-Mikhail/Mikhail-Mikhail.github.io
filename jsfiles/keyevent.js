@@ -21,8 +21,8 @@
      // Создать объект, в котором в качестве полей указаны коды клавиш, а в качестве значений
      // имена функций-обработчиков событий нажатия этих клавиш.
      var ob = {
-               S: ShowText, // 83 - код клавиши "S".
-               H: HidText   // 72 - код клавиши "H". 
+               83: ShowText, // 83 - код клавиши "S".
+               72: HidText,  // 72 - код клавиши "H". 
               };
 
        // Создать объект класса Keymap, передав конструктору коды клавиш и имена функций-обработчиков.  
@@ -34,9 +34,6 @@
 
           // Зарегистрировать для элемента <body> обработчик события "keydown".
           KeymapObj.install(elem);
-
-
-//alert("YES");
    }
 //---------------------------------------------------------------------------------------
  
@@ -49,6 +46,8 @@
 
      // Сделать видимым элемент с текстом.
      el.style.visibility="visible";
+
+   return false;  
   }
 //---------------------------------------------------------------------------------------
 
@@ -61,6 +60,8 @@
 
      // Сделать невидимым элемент с текстом.
      el.style.visibility="hidden"; 
+
+   return false;  
   }
 //---------------------------------------------------------------------------------------
  
@@ -96,7 +97,7 @@
   var obj = this;
 
   // Определить обработчик события "keydown" для HTML-элемента.
-  function handler(event) { return obj.KeydownHandler(event, element); }
+  function handler(event) { return obj.KeydownHandler(event); }
   
    // Зарегистрировать для элемента <body> обработчик события "keydown".
    if (element.addEventListener)
@@ -107,31 +108,30 @@
   // Добавлениие метода "KeydownHandler" в объект-прототип класса "Keymap".
   // Выполняет обработку события "keydown" для HTML-элемента.
 
-  Keymap.prototype.KeydownHandler = function(event, element){
+  Keymap.prototype.KeydownHandler = function(event){
 
    var keyname = null; 
+   var obj = this;
 
-    if (event.key) keyname = event.key;
+    // Получить код нажатой клавиши.
+    if(event.key) keyname = event.keyCode;
 
-alert("KeyCode="+keyname);
+      // Выбрать из объекта "map" по коду нажатой клавиши соответствующую функцию-обработчик.
+      var handler = obj.map[keyname];
 
-
-
-      var handler = this.map[keyname];
-
- alert("handler="+handler);
-
-
+      
        if (handler) { 
+         //Запустить функцию-обработчик события для нажатой клавиши.
          var retval = handler.call();
 
+            //Запретить дальнейшее "всплытие" события.   
             if (retval === false) {
-               if (event.stopPropagation) event.stopPropagation(); 
-                else event.cancelBubble = true; 
+               if (event.stopPropagation) event.stopPropagation();  
+                else event.cancelBubble = true;
 
                if (event.preventDefault) event.preventDefault(); 
                 else event.returnValue = false; 
-            }
+            } 
 
         return retval;
       }  
