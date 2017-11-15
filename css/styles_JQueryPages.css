@@ -1,0 +1,16 @@
+  /* Таблица стилей для примеров с библиотекой JQuery. */
+
+
+
+  body{ /* Задать цвет фона с помощью элемента hsla-Hue,Saturation,Lightness,Alpha*/
+               
+        background-color: silver; /* Задать цвет фона для старых браузеров не поддерживающих hsla-элементы.*/
+        background-color: hsla(0, 0%, 78%, 0.5); /* Новые браузеры поддерживают hsla, но лучше всегда 
+                                                    использовать два варианта задания цвета.*/
+      }
+
+
+    /* Стили для элемента с аттрибутом class="BoldTextClass" на странице jquery_p1.html.*/ 
+    .BoldTextClass {
+                     font: bold 12pt sans;
+                   } 

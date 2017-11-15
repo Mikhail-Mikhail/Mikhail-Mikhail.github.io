@@ -1,21 +1,21 @@
-<!Страница jspage.html >
+<!--Страница jspage.html-->
 
 <!DOCTYPE html>
 
 <html>
   <head>
     <title> Библиотека JQuery</title>
-     <meta charset="utf-8">  <!Кодировка для правильного отображения русских шрифтов.->
+     <meta charset="utf-8">  <!-- Кодировка для правильного отображения русских шрифтов.-->
 
-     <! Подключение таблицы стилей. >
-     <link href="../css/style_jspage.css" type="text/css" rel="stylesheet" /> 
+     <!-- Подключение таблицы стилей. -->
+     <link href="../css/styles_JQueryPages.css" type="text/css" rel="stylesheet" /> 
 
        <!-- Подключение библиотеки JQuery. -->
-       <script type="text/javascript">
-         "use strict" //Использовать строгий режим ECMAScript 5, если браузер поддерживает его.
-
-          
+       <script src="jquery-3.2.1.min.js"> 
+         var ret=$("BoldTextClass");
+         alert("ret");
        </script>  
+        
 
   </head>
 
@@ -23,9 +23,11 @@
       
          <h4>Пример работы с библиотекой JQuery:</h4>
            
-         
+          <div class="BoldTextClass">
+            <p> Это текст.</p>
+          </div>
 
-        <!Перейти на домашнюю страницу на метку "bottom">
+        <!-- Перейти на домашнюю страницу на метку "bottom" -->
        <a  id="ref" href="../index.html#top">Домашняя страница.</a></li>             
     	
     </body>
