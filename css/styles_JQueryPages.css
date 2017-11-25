@@ -10,7 +10,12 @@
       }
 
 
-    /* Стили для элемента с аттрибутом class="BoldTextClass" на странице jquery_p1.html.*/ 
+    /* Стили для элементов с аттрибутом class="BoldTextClass" на странице jquery_p1.html.*/ 
+    .BoldTextClass {
+                     font: bold 12pt sans;
+                   } 
+
+    /* Стили для элементов с аттрибутом class="InitialStyle" на странице jquery_p1.html.*/ 
     .BoldTextClass {
                      font: bold 12pt sans;
                    } 

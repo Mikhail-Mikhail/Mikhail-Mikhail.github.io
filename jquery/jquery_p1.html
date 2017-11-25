@@ -20,16 +20,32 @@
 
   </head>
 
-    <body>
+    <body id="elem_body">
       
          <h4>Пример работы с библиотекой JQuery:</h4>
            
-          <div class="BoldTextClass">
-            <p> Это текст.</p>
-          </div>
+
+           <p class="BoldTextClass"> Это строка 1.</p>
+           
+            <p class="BoldTextClass"> Это строка 2.</p>
+
+             <p class="BoldTextClass"> Это строка 3.</p>
+           
+              <p class="BoldTextClass"> Это строка 4.</p>        
+
+            <!-- Кнопка для изменения шрифта. --> 
+            <button class="ChangeFontBtn"> Изменить шрифт текста</button>
+
+              <!-- Кнопка для запрета изменения шрифта в строках 3 и 4. --> 
+              <button onclick="DisableBtnListener()"> Запретить изменение строк 3 и 4</button>
+
+                <!-- Кнопка для разрешения изменения шрифта в строках 3 и 4. --> 
+                <button onclick="EnableBtnListener()"> Разрешить изменение строк 3 и 4</button>
+              
+              <br><br>
 
         <!-- Перейти на домашнюю страницу на метку "bottom" -->
-       <a  id="ref" href="../index.html#top">Домашняя страница.</a></li>             
-    	
+       <a  href="../index.html#top">Домашняя страница.</a></li> 
+                         	
     </body>
  </html>
