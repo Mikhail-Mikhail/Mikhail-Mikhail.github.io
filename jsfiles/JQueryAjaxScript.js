@@ -60,7 +60,12 @@
  
   //alert();
 
-   jQuery.getScript("MyScriptLibrary.js", function() {CallAlert(); });
+   //jQuery.getScript("C:/it/MyScriptLibrary.js", function() { alert(); });
+  // $.getScript("http://localhost:8080/c:/it/test.js");
+  $.getScript("http://mikhail-mikhail.github.io/jsfiles/test.js");
+  // $.getScript("http://localhost");
+  //$.getScript("test.js");
+   //alert();
  }
 //---------------------------------------------------------------------------------------   
 
