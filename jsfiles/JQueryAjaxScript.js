@@ -58,8 +58,13 @@
 
  function LoadScriptBtnHandler(){
  
-  // Загрузить сценарий по заданному URL и выполнить его.
+  // Загрузить файл сценария test.js, размещенный по заданному URL в моем репозитории на 
+  // сайте GitHub и выполнить его.
   $.getScript("http://mikhail-mikhail.github.io/jsfiles/test.js");
+
+    // Загрузить файл сценария MyScriptLibrary.js, размещенный по заданному URL в моем репозитории на 
+    // сайте GitHub и после загрузки выполнить его функцию CallAlert().
+    $.getScript("http://mikhail-mikhail.github.io/jsfiles/MyScriptLibrary.js", function() { CallAlert();});
  }
 //---------------------------------------------------------------------------------------   
 
