@@ -83,5 +83,7 @@
     $.getJSON("http://mikhail-mikhail.github.io/json/computer.json", function(data) { 
                                                                        alert("JSON OK!");
                                                                      });
+
+    alert("YY");
  }
 //---------------------------------------------------------------------------------------   
