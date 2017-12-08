@@ -79,7 +79,9 @@
  
 //alert("YY");
     // Загрузить файл в формате JSON, размещенный по заданному URL в моем репозитории на 
-    // сайте GitHub и после загрузки выполнить его функцию CallAlert().
-   // $.getScript("http://mikhail-mikhail.github.io/jsfiles/MyScriptLibrary.js", function() { CallAlert();});
+    // сайте GitHub и после загрузки выполнить CallBack-функцию.
+    $.getJSON("http://mikhail-mikhail.github.io/json/computer.json", function(data) { 
+                                                                       alert("JSON OK!");
+                                                                     });
  }
 //---------------------------------------------------------------------------------------   
