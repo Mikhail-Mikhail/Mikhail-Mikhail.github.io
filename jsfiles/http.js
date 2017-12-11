@@ -42,7 +42,7 @@
     // Сформировать URL-адрес для формирования Get-запроса.
     // Параметр "jsonp=CallBackFunction" задает имя функции обратного вызова, которая
     // будет вызвана при получении ответа на запрос.
-    var url = "https://localhost:8080/hello2/greeting"+"?"+"jsonp=CallBackFunction"
+    var url = "http://localhost:8080/hello2/greeting"+"?"+"jsonp=CallBackFunction"
 
      // Создать элемент <script>. При вставке этого элемента в документ произойдет формирование и 
      // отправка Http-запроса.
