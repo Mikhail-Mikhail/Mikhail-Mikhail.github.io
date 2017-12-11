@@ -63,7 +63,7 @@
  function CallBackFunction(response){
          
     // Отобразить принятые данные на странице.
-    document.getElementById("answer").innerHTML = response;
+    document.getElementById("answer").innerHTML = "Объект { x="+response.x+", y="+response.y+" }";
   };
 //---------------------------------------------------------------------------------------
 
