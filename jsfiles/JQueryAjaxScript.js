@@ -85,7 +85,7 @@
     // Загрузить файл в формате JSON, размещенный по заданному URL в моем репозитории на 
     // сайте GitHub и после загрузки выполнить CallBack-функцию.
     $.getJSON("http://mikhail-mikhail.github.io/json/plain.json", function(data) { 
-                                                                       alert("JSON OK!");
+                                                                       alert("JSON OK!"+data);
                                                                      });
 
     alert("YY");
