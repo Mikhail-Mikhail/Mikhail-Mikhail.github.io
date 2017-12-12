@@ -1,1 +1,1 @@
-{"Computer":"IBM","Memory":1000}
+{"Computer":"IBM","Memory":1000,"DiskParameters":{"Volume":20000,"Speed":1.23}}
