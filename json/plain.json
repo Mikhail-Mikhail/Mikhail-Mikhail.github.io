@@ -1,6 +1,5 @@
 {"Computer":"IBM",
  "Memory":1000,
  "DiskParameters":{"Volume":20000,"Speed":1.23},
-  "OS":"Windows",
-  "Ports":[1,2,3]
+ "Ports":[1,2,3]
 }
