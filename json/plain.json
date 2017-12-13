@@ -1,4 +1,6 @@
 {"Computer":"IBM",
  "Memory":1000,
- "DiskParameters":{"Volume":20000,"Speed":1.23}
+ "DiskParameters":{"Volume":20000,"Speed":1.23},
+  "OS":"Windows",
+  "Ports":[{"Name":"USB","Quantity": 3},{"Name":"RS-232","Quantity": 2},{"Name:"ETHERNET","Quantity": 1}]
 }
