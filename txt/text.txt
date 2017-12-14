@@ -1,2 +1,1 @@
-Этот текст загружен из файла "text.txt".
 This text was loaded from file "text.txt".
