@@ -1,5 +1,5 @@
 {"Computer":"IBM",
  "Memory":1000,
  "DiskParameters":{"Volume":20000,"Speed":1.23},
- "Ports":[{"x":1},{"y":3}]
+ "Ports":[{"x":1},{"y":3,"z":5}]
 }
