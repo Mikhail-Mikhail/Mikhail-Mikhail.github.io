@@ -1,5 +1,5 @@
 {"Computer":"IBM",
  "Memory":1000,
  "DiskParameters":{"Volume":20000,"Speed":1.23},
- "Ports":[{"Name":"USB","Quantity":2},{"Name":3,"Quantity":5}]
+ "Ports":[{"Name":"USB","Quantity":2},{"Name":"RS-232","Quantity":5}]
 }
