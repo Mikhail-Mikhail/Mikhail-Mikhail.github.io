@@ -85,7 +85,7 @@
     // сайте GitHub. После загрузки выполнить CallBack-функцию, которой в качестве параметра
     // 'data' передается объект, полученный в результате преобразования принятой текстовой строки
     // в формате JSON.
-    $.getJSON("http://mikhail-mikhail.github.io/json/computer0.json", function(data) { 
+    $.getJSON("http://mikhail-mikhail.github.io/json/computer.json", function(data) { 
                                                                     var str;
 
                                                                       //Преобразовать объект в строку.

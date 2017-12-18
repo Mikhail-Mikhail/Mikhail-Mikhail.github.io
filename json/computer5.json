@@ -1,6 +1,0 @@
-{
- "Computer":"IBM",
- "Memory":1000,
- "DiskParameters":{"Volume":20000,"Speed":1.23},
- "Ports":[{"Name":"RS-232","Quantity":5},{"Name:"ETHERNET","Quantity":1}]
-}
