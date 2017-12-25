@@ -47,6 +47,21 @@
              //Отобразить прочитанные данные.
              h3Elem.innerText = "Mr. "+readObj.name+" "+readObj.surname+", your ID="+readObj.id+"!";
           }  
+
+
+      //Найти элемент заголовка <h4> по id.
+      var H4_Elem = document.getElementById("h4_elem"); 
+
+       //Прочитать данные из объекта "SessionStorage" по ключу "item".
+       var Item = sessionStorage.getItem("item"); 
+
+         //Прочитать данные из объекта "SessionStorage" по ключу "price".
+         var Price = sessionStorage.getItem("price"); 
+
+           if((Item!=null)&&(Price!=null)){
+             //Отобразить прочитанные данные.
+             H4_Elem.innerText = "Data from SessionStorage: Price of "+Item+" = "+Price+".";
+           }
    }
 
  //--------------------------------------------------------------------------------------
@@ -92,3 +107,16 @@
     localStorage.clear();
   }
 //--------------------------------------------------------------------------------------
+ 
+
+  //Обработчик кнопки "Сохранить данные в объекте SessionStorage".
+
+
+  function SessionBtnHandler(){
+
+    //Сохранить данные в объекте "SessionStorage".   
+    sessionStorage.setItem("item", "mobile phone");
+    sessionStorage.setItem("price", "200USD");
+  }
+//--------------------------------------------------------------------------------------
+ 
