@@ -15,13 +15,15 @@
     <body>
       
            <h3> Пример использования Cookie.</h3>   
-            <hr> <br>
+            <hr> 
           
              <form name ="Form1"  method ="get" action="http://localhost:8080/hello2/greeting">
 
-                  <B>Введите строку: </B>
+               <p>Разверните на GlassFish-сервере сервлет из папки Http_test/cookie_servlet/hello2. Удалите все Cookie в браузере. Затем введите свое имя и нажмите кнопку "Отправить". В результате будет отправлен ваш первый запрос на сервер и в ответ сервер вернет браузеру Cookie. Затем еще раз запустите эту страницу, и уже не вводя имени еще раз нажмите кнопку "Отправить". Теперь браузер отправит Cookie на сервер и сервер вернет страницу с приветствием.</p>
 
-                   <input type= textbox name ="data" size =25 value=" ">
+                  <B>Введите имя: </B>
+
+                   <input type= textbox name ="name" size =25 value=" ">
 
                      <input type = submit value ="Отправить">                   
 
