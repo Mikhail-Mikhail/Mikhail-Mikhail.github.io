@@ -19,10 +19,12 @@
       
            <h3> Пример использования Cookie:</h3>   
             <hr> 
-          
-             <form name ="Form1"  method ="get" action="http://localhost:8080/hello2/greeting">
+      
+<!--             <form name ="Form1"  method ="get" action="http://localhost:8080/hello2/greeting">   -->
+<!--             <form name ="Form1"  method ="get" action="http://localhost:8080/hello26294368615569692621/greeting">  -->
+             <form name ="Form1"  method ="get" action="http://localhost:8080/CookieServlet/CookieServlet">
 
-               <p>Разверните на GlassFish-сервере сервлет из папки Http_test/cookie_servlet/hello2. Удалите все Cookie в браузере. Затем введите свое имя и нажмите кнопку "Отправить". В результате будет отправлен ваш первый запрос на сервер и в ответ сервер вернет браузеру Cookie. Затем еще раз запустите эту страницу, и уже не вводя имени еще раз нажмите кнопку "Отправить". Теперь браузер отправит Cookie на сервер и сервер вернет страницу с приветствием.</p>
+               <p>Разверните на GlassFish-сервере сервлет из папки MyProjects_EE/CookieServlet или из папки Http_test/cookie_servlet/hello2. Возможно потребуется откорректировать URL используемого сервлета в файле CookiesPage.html. Удалите все Cookie в браузере. Затем введите свое имя и нажмите кнопку "Отправить". В результате будет отправлен ваш первый запрос на сервер и в ответ сервер вернет браузеру Cookie. Затем еще раз запустите эту страницу, и уже не вводя имени еще раз нажмите кнопку "Отправить". Теперь браузер отправит Cookie на сервер и сервер вернет страницу с приветствием.</p>
 
                   <B>Введите имя: </B>
 
@@ -34,8 +36,15 @@
 
            <br>
            <hr>
+            <p>Нажмите кнопку чтобы создать Cookie для данной страницы с помощью JavaScript. Предварительно, в настройках браузера нужно разрешить 
+               сохранение сторонних Cookie. В браузере Chrome этот механизм создания Cookie не работал. В IE8 - все работало. </p>
 
-             <button onclick="CreateCookies()">Создать Cookie для этой страницы</button>
+             <button onclick="CreateCookies()">Создать Cookie для этой страницы</button> 
+<!--             <button onclick= "document.cookie = 'JScookie=999; max-age=300'">Создать Cookie для этой страницы</button> -->
+             
+              <button onclick="ReadCookies()">Прочитать Cookie для этой страницы</button>
+
+                <p id="PrintCookies"></p>
            <hr>
         
           <!--Перейти на домашнюю страницу на метку "bottom"-->

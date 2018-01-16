@@ -14,6 +14,24 @@
 
   function CreateCookies(){
 
-    document.cookie = "JScookie=777; max-age=120";
+    //Создать Cookie с временем существования = 300сек.
+    document.cookie = "JScookie=777; max-age=300";
+  }
+//--------------------------------------------------------------------------------------
+
+
+  //Обработчик кнопки "Прочитать Cookie для этой страницы".
+
+
+  function ReadCookies(){
+
+    //Прочитать Cookie установленные для данной страницы.
+    var cookies = document.cookie;
+
+      //Найти элемент по id.
+      var ParElem = document.getElementById("PrintCookies");
+
+       //Отобразить прочитанные Cookies.
+       ParElem.innerText = "Cookies for this page: "+cookies;
   }
 //--------------------------------------------------------------------------------------
