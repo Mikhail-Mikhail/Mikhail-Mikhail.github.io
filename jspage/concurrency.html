@@ -1,0 +1,41 @@
+<!-- Страница concurrency.html -->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title> Concurrency</title>
+     <meta charset="utf-8">  <!--Кодировка для правильного отображения русских шрифтов.-->
+
+     <!-- Подключение таблицы стилей. -->
+     <link href="../css/style_jspage.css" type="text/css" rel="stylesheet" /> 
+
+       <!-- Загрузить JavaScript-сценариий. -->
+      <script type="text/javascript" src = "../jsfiles/concurrency.js" >
+      </script> 
+     
+  </head>
+
+    <body> 
+
+         <h4> Пример на JavaScript: Создание параллельных потоков.</h4>
+           <hr>                                       
+
+             <p>Введите количество операций для паралллельного потока и нажмите кнопку "Создать поток".</p>
+
+               <p>Количество операций:
+                 <br/>
+                  <input id="QuantityInput" type="text" size="30"/> 
+               </p>
+                            
+                 <button onclick="CreateWorkerBtnHandler()">Создать поток</button>                    
+                
+                      
+                   <h4 id="h4_info"></h4>
+
+          <hr>
+
+        <!--Перейти на домашнюю страницу на метку "bottom"--> 
+        <a  id="ref" href="../index.html#top">Домашняя страница.</a></li>    
+    </body>
+ </html>
