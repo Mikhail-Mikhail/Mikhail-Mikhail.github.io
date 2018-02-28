@@ -26,8 +26,15 @@
 
  function calculate(quantity) {
  	
+   //Выполнение (quantity*quantity*quantity) итераций.
+   for(var count = 0; count < quantity; count++) {
    
-   return quantity*2;
+      for(var i = 0; i < quantity; i++) { 
+      	 for(var j = 0; j < quantity; j++) { }
+      }
+   }
+
+  return quantity;
  }
 //--------------------------------------------------------------------------------------
  
