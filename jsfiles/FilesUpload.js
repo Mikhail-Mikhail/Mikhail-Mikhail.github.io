@@ -14,7 +14,23 @@
 
  function ReadFile(file) {
  	
-  alert("ReadFile");
+  //Найти элемент для отображения содержимого файла.
+  var Display = document.getElementById("FileContent");
+
+    // Создать объект FileReader.
+    var reader = new FileReader();
+
+     //Прочитать содержимое файла.
+     reader.readAsText(file);
+
+
+      //Обработчик события завершения загрузки выбранного файла.
+      reader.onload = function() { 
+        //Сохранить содержимое из файла в переменной.
+        var text = reader.result;
+         //Отобразить содержимое файла на странице. 
+         Display.innerHTML = text;
+      }
  }
 //--------------------------------------------------------------------------------------
 
@@ -23,6 +39,52 @@
 
  function CheckFileType(file) {
   
-   alert("CheckFileType");
+
+   //Найти элемент для отображения типа выбранного файла.
+   var Disp = document.getElementById("TypeFile");
+
+    // Читать только первые 4 байта файла, в которых содержится информация 
+    // о типе данного файла.
+    var slice = file.slice(0,4); 
+
+     // Создать объект FileReader.
+     var reader = new FileReader();
+
+      //Прочитать первые 4 байта файла.
+      reader.readAsArrayBuffer(slice);
+
+
+
+      //Обработчик события завершения чтения выбранного файла.
+      reader.onload = function() { 
+
+        //Тип выбранного файла.
+        var type="Unknown format";
+
+        //Сохранить содержимое первых четырех байт файла в переменной.
+        var buffer = reader.result;
+          //Преобразовать результат к 32-разрядному числу.
+          var dv = new DataView(buffer);
+          var num32 = dv.getUint32(0, false);
+
+            //Определить тип файла по полученному значению 32-разрядного числа.
+            //Коды, определяющие тип файлов называются сигнатурами или "магическими числами".
+            //Список магических чисел для всех типов файлов см. в pdf в папке IT/Протоколы/
+            switch(num32) {
+              case 0x89504E47: type = "png"; 
+               break;
+              case 0x47494638: type = "gif"; 
+               break;
+              case 0x25504446: type = "pdf"; 
+               break;
+              case 0x504b0304: type = "zip"; 
+               break;
+              case 0xFFD8FFE0: type = "jpg"; 
+               break;
+            }
+
+         //Отобразить тип выбранного файла на странице. 
+         Disp.innerHTML = type;
+      }
  }
 //--------------------------------------------------------------------------------------

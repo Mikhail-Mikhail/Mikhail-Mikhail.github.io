@@ -1,0 +1,1 @@
+And this text was loaded from another file "text2.txt".
