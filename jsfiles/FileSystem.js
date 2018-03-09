@@ -37,7 +37,7 @@
           function  SuccessFunction(grantedBytes) {
             //Создать файловую систему.
             //В случае успеха будет вызвана функция successHandler, в случае ошибки -  errorHandler.
-           window.requestFileSystem(window.PERSISTENT, grantedBytes, successHandler, errorHandler);
+          window.webkitRequestFileSystem(window.PERSISTENT, grantedBytes, successHandler, errorHandler);
           } 
 
            //Если разрешение на создание файловой системы не получено.
@@ -49,7 +49,7 @@
             //Если файловая система создана успешно.
             function  successHandler(fs){
              //Сохранить ссылку на созданную файловую систему в глобальной переменной.
-             filesystem = fs;
+      // filesystem = fs;
              alert("Init OK!");
             }
 
