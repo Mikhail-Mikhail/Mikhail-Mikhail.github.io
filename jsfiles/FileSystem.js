@@ -13,6 +13,7 @@
 
 //---------------------------------------------------------------------------------------
 
+
  //Обработчик кнопки "Создать файловую систему".
  
 
@@ -20,55 +21,43 @@
  	
   //Найти элемент для отображения информационных сообщений.
   var Display = document.getElementById("Message");
-//alert("FS supported");
-/*
-if(window.webkitRequestFileSystem) {
-   alert("FS supported");
-   //Создать файловую систему.
-  // navigator.webkitRequestFileSystem(window.PERSISTENT, 1024, onInitFs, errorHandler);
-}  
-*/
 
-var requestedBytes = 1024*2; 
+    //Название метода для создания файловой системы отличается в разных браузерах.
+    window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
 
-navigator.webkitPersistentStorage.requestQuota (
-    requestedBytes, function(grantedBytes) {  
-       window.webkitRequestFileSystem(PERSISTENT, grantedBytes, onInitFs, errorHandler);
-
-    }, function(e) { alert("Error"+e); }
-);
-
-/*
-window.storageInfo.requestQuota(PERSISTENT, 1024*1024, 
-    function(grantedBytes) {
-       //Создать файловую систему.
-       window.webkitRequestFileSystem(window.PERSISTENT, grantedBytes, onInitFs, errorHandler);
-    }, 
-    errorHandler);
-*/
-
-/*
-   //Создать файловую систему.
-   window.webkitRequestFileSystem(window.PERSISTENT,
-                                          1,  //Размер файловой системы = 10 Мбайт.
-                                      function(fs) {  //В случае успешного создания файловой системы вызвать эту функцию.
-                                       filesystem = fs; //Сохранить ссылку на файловую систему в глобальной переменной.
-                                      },
-                                      function(e) {  //В случае ошибки при создании файловой системы вызвать эту функцию.
-                                       alert("При создании файловой системы произошла ошибка..."+e);
-                                      } );
-  */
-
- alert("Проверка");
-   //   if(filesystem!=null) Display.innerHTML = "Файловая система создана успешно.";
+      //Размер создаваемой файловой системы в байтах.
+      var requestedBytes = 1024*1024; //1Мб. 
 
 
-       function errorHandler(e){
-         alert("Error occured: "+e);
-        }
-        function onInitFs(fs){
-         alert("Init OK!");
-        }
+       //Запросить квоту на создание файловой системы требуемого размера.
+       //Браузер запросит у пользователя разрешение на создание файловой системы.
+       //В случае успеха будет вызвана функция SuccessFunction, в случае ошибки - ErrorFunction.
+       navigator.webkitPersistentStorage.requestQuota( requestedBytes, SuccessFunction, ErrorFunction);
+
+          //Если разрешение на создание файловой системы получено.
+          function  SuccessFunction(grantedBytes) {
+            //Создать файловую систему.
+            //В случае успеха будет вызвана функция successHandler, в случае ошибки -  errorHandler.
+           window.requestFileSystem(window.PERSISTENT, grantedBytes, successHandler, errorHandler);
+          } 
+
+            //Если файловая система создана успешно.
+            function  successHandler(fs){
+             //Сохранить ссылку на созданную файловую систему в глобальной переменной.
+             filesystem = fs;
+             alert("Init OK!");
+            }
+
+             //Если при создании файловой системы произошла ошибка.
+            function errorHandler(e){
+             alert("Error occured: "+e);
+            }
+
+             if(filesystem!=null) Display.innerHTML = "Файловая система создана успешно.";
+
+
+ //alert("Проверка");
+         
 
 /*
       //Обработчик события завершения загрузки выбранного файла.
