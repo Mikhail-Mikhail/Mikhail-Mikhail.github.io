@@ -28,6 +28,14 @@
       //Размер создаваемой файловой системы в байтах.
       var requestedBytes = 1024*1024; //1Мб. 
 
+navigator.webkitPersistentStorage.requestQuota (
+    requestedBytes, function(grantedBytes) {  
+        window.requestFileSystem(PERSISTENT, grantedBytes, onInitFs, errorHandler);
+
+    }, function(e) { console.log('Error', e); }
+);
+      
+/*
        //Запросить квоту на создание файловой системы требуемого размера.
        //Браузер запросит у пользователя разрешение на создание файловой системы.
        //В случае успеха будет вызвана функция SuccessFunction, в случае ошибки - ErrorFunction.
@@ -37,7 +45,8 @@
           function  SuccessFunction(grantedBytes) {
             //Создать файловую систему.
             //В случае успеха будет вызвана функция successHandler, в случае ошибки -  errorHandler.
-          window.webkitRequestFileSystem(window.PERSISTENT, grantedBytes, successHandler, errorHandler);
+   //       window.webkitRequestFileSystem(window.PERSISTENT, grantedBytes, successHandler, errorHandler);
+           window.requestFileSystem(window.PERSISTENT, grantedBytes, successHandler, errorHandler);
           } 
 
            //Если разрешение на создание файловой системы не получено.
@@ -45,9 +54,9 @@
             //Отобразить сообщение на странице.
             Display.innerHTML = "Разрешение на создание файловой системы не получено.";
            }
-
+*/
             //Если файловая система создана успешно.
-            function  successHandler(fs){
+            function  onInitFs(fs){
              //Сохранить ссылку на созданную файловую систему в глобальной переменной.
       // filesystem = fs;
              alert("Init OK!");
