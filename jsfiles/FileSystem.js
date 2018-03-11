@@ -58,6 +58,7 @@ navigator.webkitPersistentStorage.requestQuota (
             function  onInitFs(fs){
              //Сохранить ссылку на созданную файловую систему в глобальной переменной.
              filesystem = fs;
+              alert("Init ok!");
             }
 
              //Если при создании файловой системы произошла ошибка.
