@@ -29,10 +29,7 @@
       var requestedBytes = 1024*1024; //1Мб. 
 
 
-navigator.webkitPersistentStorage.requestQuota (
-    requestedBytes, SuccessFunction,
-       function(e) { console.log('Error', e); }
-);
+navigator.webkitPersistentStorage.requestQuota(requestedBytes, SuccessFunction, function(e) { console.log('Error', e); });
 
        //Запросить квоту на создание файловой системы требуемого размера.
        //Браузер запросит у пользователя разрешение на создание файловой системы.
