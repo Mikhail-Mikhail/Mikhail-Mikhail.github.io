@@ -38,7 +38,7 @@ navigator.webkitPersistentStorage.requestQuota (
        //Браузер запросит у пользователя разрешение на создание файловой системы.
        //В случае успеха будет вызвана функция SuccessFunction, в случае ошибки - ErrorFunction.
   //     navigator.webkitPersistentStorage.requestQuota( requestedBytes, SuccessFunction, ErrorFunction);
-/*
+
           //Если разрешение на создание файловой системы получено.
           function  SuccessFunction(grantedBytes) {
             //Создать файловую систему.
@@ -51,7 +51,7 @@ navigator.webkitPersistentStorage.requestQuota (
             //Отобразить сообщение на странице.
             Display.innerHTML = "Разрешение на создание файловой системы не получено.";
            }
-*/
+
             //Если файловая система создана успешно.
             function  onInitFs(fs){
              //Сохранить ссылку на созданную файловую систему в глобальной переменной.
