@@ -51,7 +51,7 @@ navigator.webkitPersistentStorage.requestQuota (
             //Создать файловую систему.
             //В случае успеха будет вызвана функция successHandler, в случае ошибки -  errorHandler.
    //       window.webkitRequestFileSystem(window.PERSISTENT, grantedBytes, successHandler, errorHandler);
-           window.requestFileSystem(window.PERSISTENT, grantedBytes, onInitFs, errorHandler);
+           window.requestFileSystem(PERSISTENT, grantedBytes, onInitFs, errorHandler);
           } 
 
            //Если разрешение на создание файловой системы не получено.
