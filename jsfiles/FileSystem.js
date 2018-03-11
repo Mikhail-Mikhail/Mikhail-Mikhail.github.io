@@ -30,8 +30,7 @@
 
 
 navigator.webkitPersistentStorage.requestQuota (
-    requestedBytes, function(grantedBytes) {  
-       SuccessFunction,// window.requestFileSystem(PERSISTENT, grantedBytes, onInitFs, errorHandler);},
+    requestedBytes, SuccessFunction,
        function(e) { console.log('Error', e); }
 );
 
