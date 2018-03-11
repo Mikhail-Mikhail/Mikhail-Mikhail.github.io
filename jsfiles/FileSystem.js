@@ -28,30 +28,16 @@
       //Размер создаваемой файловой системы в байтах.
       var requestedBytes = 1024*1024; //1Мб. 
 
-navigator.webkitPersistentStorage.requestQuota (
-    requestedBytes, SuccessFunction, function(e) { console.log('Error', e); } );
-
-/*
-navigator.webkitPersistentStorage.requestQuota (
-    requestedBytes, function(grantedBytes) {  
-        window.requestFileSystem(PERSISTENT, grantedBytes, onInitFs, errorHandler);
-
-    }, function(e) { console.log('Error', e); }
-);
-*/
-
-/*
        //Запросить квоту на создание файловой системы требуемого размера.
        //Браузер запросит у пользователя разрешение на создание файловой системы.
        //В случае успеха будет вызвана функция SuccessFunction, в случае ошибки - ErrorFunction.
        navigator.webkitPersistentStorage.requestQuota( requestedBytes, SuccessFunction, ErrorFunction);
-*/
+
           //Если разрешение на создание файловой системы получено.
           function  SuccessFunction(grantedBytes) {
             //Создать файловую систему.
             //В случае успеха будет вызвана функция successHandler, в случае ошибки -  errorHandler.
-   //       window.webkitRequestFileSystem(window.PERSISTENT, grantedBytes, successHandler, errorHandler);
-           window.requestFileSystem(PERSISTENT, grantedBytes, onInitFs, errorHandler);
+            window.requestFileSystem(PERSISTENT, grantedBytes, onInitFs, errorHandler);
           } 
 
            //Если разрешение на создание файловой системы не получено.
@@ -63,8 +49,7 @@ navigator.webkitPersistentStorage.requestQuota (
             //Если файловая система создана успешно.
             function  onInitFs(fs){
              //Сохранить ссылку на созданную файловую систему в глобальной переменной.
-      // filesystem = fs;
-             alert("Init OK!");
+             filesystem = fs;
             }
 
              //Если при создании файловой системы произошла ошибка.
@@ -74,6 +59,7 @@ navigator.webkitPersistentStorage.requestQuota (
 
              //Отобразить сообщение на странице.
              if(filesystem!=null) Display.innerHTML = "Файловая система создана успешно.";
+              else  Display.innerHTML = "Ошибка при создании файловой системы.";
 
 
            alert("Проверка");   
