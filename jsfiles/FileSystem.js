@@ -39,7 +39,7 @@
           //Если разрешение на создание файловой системы получено.
           function  SuccessFunction(grantedBytes) {
             //Создать файловую систему.
-            //В случае успеха будет вызвана функция successHandler, в случае ошибки -  errorHandler.
+            //В случае успеха будет вызвана функция onInitFs, в случае ошибки -  errorHandler.
             window.requestFileSystem(PERSISTENT, grantedBytes, onInitFs, errorHandler);
           } 
 
@@ -53,7 +53,7 @@
             function  onInitFs(fs){
              //Сохранить ссылку на созданную файловую систему в глобальной переменной.
              filesystem = fs;
-              alert("Init ok!");
+  //            alert("Init ok!");
             }
 
              //Если при создании файловой системы произошла ошибка.
@@ -66,7 +66,7 @@
               else  Display.innerHTML = "Ошибка при создании файловой системы.";
 
 
-           alert("Проверка");   
+         //  alert("Проверка");   
 
 /*
       //Обработчик события завершения загрузки выбранного файла.
