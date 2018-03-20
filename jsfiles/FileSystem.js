@@ -9,8 +9,7 @@
 //---------------------------------------------------------------------------------------
  
   //Глобальная переменная - ссылка на создаваемую файловую систему. 
-  //var filesystem = null;
-  var filesystem;
+  var filesystem = null;
 //---------------------------------------------------------------------------------------
 
 
@@ -61,7 +60,7 @@
             }
 
              //Отобразить сообщение на странице.
-             if(filesystem!=null) Display.innerHTML = "Файловая система создана успешно.";
+             if(filesystem!==null) Display.innerHTML = "Файловая система создана успешно.";
               else  Display.innerHTML = "Ошибка при создании файловой системы.";
     
 
@@ -79,12 +78,9 @@
 
   //Найти элемент для отображения информационных сообщений.
   var Disp = document.getElementById("Message");
-
- //Disp.innerHTML = "Control ok!";
- //alert("ok!");
  
    //Отобразить сообщение на странице.
-   if(filesystem!=null) Disp.innerHTML = "filesystem not null";
+   if(filesystem!==null) Disp.innerHTML = "filesystem not null";
     else  Disp.innerHTML = "filesystem = null";
 
  }
