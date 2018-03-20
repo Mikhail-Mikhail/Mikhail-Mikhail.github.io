@@ -80,8 +80,12 @@
   //Найти элемент для отображения информационных сообщений.
   var Disp = document.getElementById("Message");
 
+ Disp.innerHTML = "Control ok!";
+ alert("ok!");
+ /*
    //Отобразить сообщение на странице.
    if(filesystem!=null) Disp.innerHTML = "filesystem not null";
     else  Disp.innerHTML = "filesystem = null";
+*/
  }
 //--------------------------------------------------------------------------------------
