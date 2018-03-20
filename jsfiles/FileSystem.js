@@ -52,16 +52,14 @@
             function  onInitFs(fs){
              //Сохранить ссылку на созданную файловую систему в глобальной переменной.
              filesystem = fs;
+
+               if(filesystem!==null) Display.innerHTML = "Файловая система создана успешно.";
             }
 
              //Если при создании файловой системы произошла ошибка.
             function errorHandler(e){
-             alert("Error occured: "+e);
+              Display.innerHTML = "Ошибка при создании файловой системы: "+e;
             }
-
-             //Отобразить сообщение на странице.
-             if(filesystem!==null) Display.innerHTML = "Файловая система создана успешно.";
-              else  Display.innerHTML = "Ошибка при создании файловой системы.";
     
 
 /*
