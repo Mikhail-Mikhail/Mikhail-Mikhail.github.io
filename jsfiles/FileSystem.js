@@ -76,8 +76,12 @@
  }
 //--------------------------------------------------------------------------------------
  function Info() {
+
+  //Найти элемент для отображения информационных сообщений.
+  var Disp = document.getElementById("Message");
+
    //Отобразить сообщение на странице.
-   if(filesystem!=null) Display.innerHTML = "filesystem = null";
-    else  Display.innerHTML = "filesystem not null";
+   if(filesystem!=null) Disp.innerHTML = "filesystem not null";
+    else  Disp.innerHTML = "filesystem = null";
  }
 //--------------------------------------------------------------------------------------
