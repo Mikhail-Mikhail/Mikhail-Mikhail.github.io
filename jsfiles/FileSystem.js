@@ -8,8 +8,13 @@
 
 //---------------------------------------------------------------------------------------
  
-  //Глобальная переменная - ссылка на создаваемую файловую систему. 
+  //Глобальная переменные:
+
+  //Ссылка на создаваемую файловую систему. 
   var filesystem = null;
+
+  //Ссылка на строку для отображения информации.
+  var Display;
 //---------------------------------------------------------------------------------------
 
 
@@ -19,7 +24,7 @@
  function CreateFileSystem() {
  	
   //Найти элемент для отображения информационных сообщений.
-  var Display = document.getElementById("Message");
+  Display = document.getElementById("Message");
 
     //Название метода для создания файловой системы отличается в разных браузерах.
     window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
@@ -71,6 +76,43 @@
          Display.innerHTML = text;
       } */
  }
+//--------------------------------------------------------------------------------------
+
+ //Обработчик кнопки "Create File".
+
+ function CreateFileBtnHandler(){
+   writeTextFile("c:\tmp\n.txt", "Yes!")
+  alert("yui");
+ }
+
+//--------------------------------------------------------------------------------------
+
+  //Функция создания файла и записи в него данных.
+
+  function writeTextFile(path, contents) {
+
+   filesystem.root.getFile(path, // Имя и путь к файлу.
+                           {create:true}, // Создать файл, если он не существует.
+                            function(entry) { // Вызвать эту функцию, когда файл будет найден или создан.
+                                entry.createWriter( // Создать для файла объект FileWriter.
+                                    function(writer) {
+                                      writer.seek(writer.length); // Переместить указатель в конец файла.
+                                       // Преобразовать записываемые данные в объект Blob.
+                                       var bb = new BlobBuilder();
+                                       bb.append(contents);
+                                       var blob = bb.getBlob();
+
+                                         writer.write(blob);
+
+                                           writer.onwrite = function(){
+                                                                       Display.innerHTML = "Файл создан успешно.";
+                                                                      }
+                                    }
+                                ); 
+                            } 
+                          );   
+
+  }
 //--------------------------------------------------------------------------------------
  function Info() {
 
