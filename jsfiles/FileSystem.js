@@ -81,7 +81,7 @@
  //Обработчик кнопки "Create File".
 
  function CreateFileBtnHandler(){
-   writeTextFile("c:\tmp\n.txt", "Yes!")
+   writeTextFile("c:/tmp/n.txt", "Yes!")
   alert("yui");
  }
 
