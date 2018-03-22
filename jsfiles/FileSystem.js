@@ -83,14 +83,13 @@
  function CreateFileBtnHandler(){
    Display.innerHTML = "Проверка1."; 
    writeFile('n.txt', "Yes!")
-  alert("Ok!");
  }
 
 //--------------------------------------------------------------------------------------
 
   function writeFile(path, contents) {
 
-     Display.innerHTML = "Проверка2."; 
+     Display.innerHTML = "Проверка2."+path; 
 
    filesystem.root.getFile(path, // Имя и путь к файлу.
                            {create:true}, // Создать файл, если он не существует.
