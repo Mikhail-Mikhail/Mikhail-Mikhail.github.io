@@ -81,7 +81,7 @@
  //Обработчик кнопки "Create File".
 
  function CreateFileBtnHandler(){
-   writeFile("c:/n.txt", "Yes!")
+   writeFile('n.txt', "Yes!")
   alert("Ok!");
  }
 
@@ -93,10 +93,16 @@
                            {create:true}, // Создать файл, если он не существует.
                             function(entry) { // Вызвать эту функцию, когда файл будет найден или создан.
                               Display.innerHTML = "Файл создан успешно.";  
-                            } 
+                            },
+                            errorProcess
                           );   
 
+   function  errorProcess() {
+     Display.innerHTML = "Ошибка при создании фвйла.";
+   }
   }
+
+
 //--------------------------------------------------------------------------------------
 
   //Функция создания файла и записи в него данных.
