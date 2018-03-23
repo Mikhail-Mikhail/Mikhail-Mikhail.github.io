@@ -91,21 +91,25 @@
    filesystem.root.getFile(path, // Имя и путь к файлу.
                            {create:true}, // Создать файл, если он не существует.
                             function(entry) { // Вызвать эту функцию, когда файл будет найден или создан.
-                              Display.innerHTML = "Файл создан успешно!";  
+                              Display.innerHTML = "Файл создан успешно!"+entry.fullPath;  
                                  entry.createWriter( // Создать для файла объект FileWriter.
                                                       function(writer) {
                                                          writer.write(contents);
                                                           Display.innerHTML = "Записано успешно!";  
                                                       },
-                                                    errorProcessing
+                                                    errorCreateWriter
                                                    );
                             },
-                            errorProcessing
+                            errorGetFile
                           );   
 
 
-   function  errorProcessing(e) {
-     Display.innerHTML = "Ошибка при создании файла:"+e;
+   function  errorGetFile(e) {
+     Display.innerHTML = "Ошибка errorGetFile:"+e;
+   }
+
+   function  errorCreateWriter(e) {
+     Display.innerHTML = "Ошибка errorCreateWriter:"+e;
    }
   }
 
