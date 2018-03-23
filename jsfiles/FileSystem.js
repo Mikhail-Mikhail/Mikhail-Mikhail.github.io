@@ -92,12 +92,20 @@
                            {create:true}, // Создать файл, если он не существует.
                             function(entry) { // Вызвать эту функцию, когда файл будет найден или создан.
                               Display.innerHTML = "Файл создан успешно!";  
+                                 entry.createWriter( // Создать для файла объект FileWriter.
+                                                      function(writer) {
+                                                         writer.write(contents);
+                                                          Display.innerHTML = "Записано успешно!";  
+                                                      },
+                                                    errorProcessing
+                                                   );
                             },
-                            errorProcess
+                            errorProcessing
                           );   
 
-   function  errorProcess() {
-     Display.innerHTML = "Ошибка при создании фвйла.";
+
+   function  errorProcessing(e) {
+     Display.innerHTML = "Ошибка при создании файла:"+e;
    }
   }
 
