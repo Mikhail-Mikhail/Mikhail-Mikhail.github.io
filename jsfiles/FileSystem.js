@@ -88,7 +88,7 @@
 
   function writeFile(path, contents) {
 
-   filesystem.root.getFile(path, // Имя и путь к файлу.
+   filesystem.root.getFile('n.txt', // Имя и путь к файлу.
                            {create: true, exclusive: true}, // Создать файл, если он не существует.
                             function(entry) { // Вызвать эту функцию, когда файл будет найден или создан.
                               Display.innerHTML = "Файл создан успешно!"+entry.fullPath;  
