@@ -81,7 +81,7 @@
  //Обработчик кнопки "Create File".
 
  function CreateFileBtnHandler(){
-   writeFile('c:/n.txt', "Yes!")
+   writeFile('n.txt', "Yes!")
  }
 
 //--------------------------------------------------------------------------------------
@@ -89,7 +89,7 @@
   function writeFile(path, contents) {
 
    filesystem.root.getFile(path, // Имя и путь к файлу.
-                           {create:true}, // Создать файл, если он не существует.
+                           {create: true, exclusive: true}, // Создать файл, если он не существует.
                             function(entry) { // Вызвать эту функцию, когда файл будет найден или создан.
                               Display.innerHTML = "Файл создан успешно!"+entry.fullPath;  
                                  entry.createWriter( // Создать для файла объект FileWriter.
