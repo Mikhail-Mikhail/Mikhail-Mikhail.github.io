@@ -125,7 +125,7 @@ function readFile(){
 
     fs.root.getFile('n.txt', {}, function(fileEntry) {
 
-                                               TextArea
+                                              
            fileEntry.file(function(file) {
                var reader = new FileReader();
 
