@@ -81,7 +81,7 @@
  //Обработчик кнопки "Create File".
 
  function CreateFileBtnHandler(){
-   writeFile('c:/tmp/n.txt', "Yes!")
+   writeFile('n.txt', "Yes!")
  }
 
 //--------------------------------------------------------------------------------------
@@ -112,7 +112,42 @@
      Display.innerHTML = "Ошибка errorCreateWriter:"+e;
    }
   }
+//--------------------------------------------------------------------------------------
 
+
+//Функция чтения из файла.
+
+function readFile(){
+
+   //Найти элемент для отображения данных из файла.
+   var TxtArea = document.getElementById("TextArea");
+   TxtArea.innerHTML = "проверка!!!";
+
+    fs.root.getFile('n.txt', {}, function(fileEntry) {
+
+                                               TextArea
+           fileEntry.file(function(file) {
+               var reader = new FileReader();
+
+                 reader.onloadend = function(e) {                    
+                                        TxtArea.innerHTML = this.result;             
+                                    };
+
+                reader.readAsText(file);
+            }, errorCreateReader);
+
+  }, errorReadGetFile);
+
+
+  function  errorReadGetFile(e) {
+     Display.innerHTML = "Ошибка errorReadGetFile:"+e;
+   }
+
+   function  errorCreateReader(e) {
+     Display.innerHTML = "Ошибка errorCreateReader:"+e;
+   }   
+
+}
 
 //--------------------------------------------------------------------------------------
 
