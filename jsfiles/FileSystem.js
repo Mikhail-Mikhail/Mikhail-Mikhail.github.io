@@ -129,22 +129,22 @@ function readFile(){
            fileEntry.file(function(file) {
                var reader = new FileReader();
 
-                 reader.onloadend = function(e) {                    
+                 reader.onload = function(e) {                    
                                         TxtArea.innerHTML = this.result;             
                                     };
 
                 reader.readAsText(file);
             }, errorCreateReader);
 
-  }, errorReadGetFile);
-
+       }, errorReadGetFile);
+  
 
   function  errorReadGetFile(e) {
-     Display.innerHTML = "Ошибка errorReadGetFile:"+e;
+     TxtArea.innerHTML = "Ошибка errorReadGetFile:"+e;
    }
 
    function  errorCreateReader(e) {
-     Display.innerHTML = "Ошибка errorCreateReader:"+e;
+     TxtArea.innerHTML = "Ошибка errorCreateReader:"+e;
    }   
 
 }
