@@ -94,7 +94,9 @@
                               Display.innerHTML = "Файл создан успешно!"+entry.fullPath;  
                                  entry.createWriter( // Создать для файла объект FileWriter.
                                                       function(writer) {
-                                                         writer.write(contents);
+                                                        var bb = new BlobBuilder(); 
+                                                        bb.append('YES!');
+                                                         writer.write(bb.getBlob('text/plain'));
                                                           Display.innerHTML = "Записано успешно!";  
                                                       },
                                                     errorCreateWriter
