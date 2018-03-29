@@ -86,6 +86,8 @@
 
 //--------------------------------------------------------------------------------------
 
+ //Функция создания файла и записи в него данных.
+
   function writeFile(path, contents) {
 
    filesystem.root.getFile('n.txt', // Имя и путь к файлу.
@@ -125,7 +127,7 @@ function readFile(){
    var TxtArea = document.getElementById("TextArea");
    TxtArea.innerHTML = "проверка!!!";
 
-    fs.root.getFile('n.txt', {}, function(fileEntry) {
+     filesystem.root.getFile('n.txt', {}, function(fileEntry) {
 
                                               
            fileEntry.file(function(file) {
@@ -142,41 +144,26 @@ function readFile(){
   
 
   function  errorReadGetFile(e) {
-     TxtArea.innerHTML = "Ошибка errorReadGetFile:"+e;
+     Display.innerHTML = "Ошибка errorReadGetFile:"+e;
    }
 
    function  errorCreateReader(e) {
-     TxtArea.innerHTML = "Ошибка errorCreateReader:"+e;
+     Display.innerHTML = "Ошибка errorCreateReader:"+e;
    }   
 
 }
 
 //--------------------------------------------------------------------------------------
 
-  //Функция создания файла и записи в него данных.
+  //Функция создания директории.
 
-  function writeTextFile(path, contents) {
+  function makeDirectory() {
 
-   filesystem.root.getFile(path, // Имя и путь к файлу.
-                           {create:true}, // Создать файл, если он не существует.
-                            function(entry) { // Вызвать эту функцию, когда файл будет найден или создан.
-                                entry.createWriter( // Создать для файла объект FileWriter.
-                                    function(writer) {
-                                      writer.seek(writer.length); // Переместить указатель в конец файла.
-                                       // Преобразовать записываемые данные в объект Blob.
-                                       var bb = new BlobBuilder();
-                                       bb.append(contents);
-                                       var blob = bb.getBlob();
+     filesystem.root.getDirectory('c:/tmp/ndir', {create: true}, function(dirEntry) { }, errorDir); 
 
-                                         writer.write(blob);
-
-                                           writer.onwrite = function(){
-                                                                       Display.innerHTML = "Файл создан успешно.";
-                                                                      }
-                                    }
-                                ); 
-                            } 
-                          );   
+     function errorDir(e) {
+       Display.innerHTML = "Ошибка getDirectory:"+e;
+     }    
 
   }
 //--------------------------------------------------------------------------------------
