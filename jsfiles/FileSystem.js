@@ -32,9 +32,6 @@
       //Размер создаваемой файловой системы в байтах.
       var requestedBytes = 1024*1024; //1Мб. 
 
-
-//navigator.webkitPersistentStorage.requestQuota(requestedBytes, SuccessFunction, function(e) { console.log('Error', e); });
-
        //Запросить квоту на создание файловой системы требуемого размера.
        //Браузер запросит у пользователя разрешение на создание файловой системы.
        //В случае успеха будет вызвана функция SuccessFunction, в случае ошибки - ErrorFunction.
@@ -65,22 +62,13 @@
             function errorHandler(e){
               Display.innerHTML = "Ошибка при создании файловой системы: "+e;
             }
-    
-
-/*
-      //Обработчик события завершения загрузки выбранного файла.
-      reader.onload = function() { 
-        //Сохранить содержимое из файла в переменной.
-        var text = reader.result;
-         //Отобразить содержимое файла на странице. 
-         Display.innerHTML = text;
-      } */
  }
 //--------------------------------------------------------------------------------------
 
- //Обработчик кнопки "Create File".
+ //Обработчик кнопки "Создать файл".
 
  function CreateFileBtnHandler(){
+   //Создать файл и записать в него строку.
    writeFile('n.txt', "Yes!")
  }
 
@@ -88,20 +76,23 @@
 
  //Функция создания файла и записи в него данных.
 
-  function writeFile(path, contents) {
+  function writeFile(path, data) {
 
-   filesystem.root.getFile('m.txt', // Имя и путь к файлу.
+   filesystem.root.getFile(path, // Имя и путь к создаваемому файлу. 
+                                 // Найти созданный файл на диске будет нельзя, т.к. он будет иметь совсем другое имя 
+                                 // и будет доступен только через созданную файловую систему.
                            {create: true}, // Создать файл, если он не существует.
                             function(entry) { // Вызвать эту функцию, когда файл будет найден или создан.
                               Display.innerHTML = "Файл создан успешно!"+entry.fullPath;  
                                  entry.createWriter(function(writer) {
-                                                        var blob = new Blob(['Hello World!'], {type: 'text/plain'});
-                                                         writer.write(blob);
+                                                        //Записать текстовую строку в файл.
+                                                        var blob = new Blob([data], {type: 'text/plain'});
+                                                         writer.write(blob); 
                                                           writer.onwrite = function(e) { Display.innerHTML = "Записано успешно!"; }
                                                     }, errorCreateWriter);
                             }, errorGetFile);   
 
-
+   //Обработчики ошибок при создании файла.
    function  errorGetFile(e) {
      Display.innerHTML = "Ошибка errorGetFile:"+e;
    }
@@ -111,30 +102,38 @@
    }
   }
 //--------------------------------------------------------------------------------------
+ 
+ //Обработчик кнопки "Прочитать файл".
 
+ function ReadFileBtnHandler(){
+   //Прочитать файл и отобразить его содержимое на странице.
+   readFile('n.txt');
+ }
+
+//--------------------------------------------------------------------------------------
 
 //Функция чтения из файла.
 
-function readFile(){
+function readFile(name){
 
    //Найти элемент для отображения данных из файла.
    var TxtArea = document.getElementById("TextArea");
-   TxtArea.innerHTML = "проверка!!!";
 
-     filesystem.root.getFile('m.txt', {}, function(fileEntry) {                                 
+     filesystem.root.getFile(name, {}, function(fileEntry) {                                 
                                               fileEntry.file(function(file) {
                                                                var reader = new FileReader();
-                                                                 reader.onload = function() {                    
+                                                                 reader.onload = function() { 
+                                                                                   //Отобразить прочитанные данные.
                                                                                    var text = reader.result;
-                                                                                   TxtArea.innerHTML = text;             
+                                                                                    TxtArea.innerHTML = text;             
                                                                                  };
-
+                                                                //Прочитать файл.
                                                                 reader.readAsText(file);
                                                               }, errorCreateReader);
 
                                           }, errorReadGetFile);
        
-
+  //Обработчики ошибок при чтении файла.
   function  errorReadGetFile(e) { 
      Display.innerHTML = "Ошибка errorReadGetFile:"+e;
    }
@@ -143,29 +142,7 @@ function readFile(){
      Display.innerHTML = "Ошибка errorCreateReader:"+e;
    }   
 }
-
 //--------------------------------------------------------------------------------------
 
-  //Функция создания директории.
-
-  function makeDirectory() {
-
-     filesystem.root.getDirectory('c:/tmp/ndir', {create: true}, function(dirEntry) { }, errorDir); 
-
-     function errorDir(e) {
-       Display.innerHTML = "Ошибка getDirectory:"+e;
-     }    
-
-  }
-//--------------------------------------------------------------------------------------
- function Info() {
-
-  //Найти элемент для отображения информационных сообщений.
-  var Disp = document.getElementById("Message");
+  
  
-   //Отобразить сообщение на странице.
-   if(filesystem!==null) Disp.innerHTML = "filesystem not null";
-    else  Disp.innerHTML = "filesystem = null";
-
- }
-//--------------------------------------------------------------------------------------

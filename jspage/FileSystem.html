@@ -22,18 +22,16 @@
            <hr>  
 
              <p> ВНИМАНИЕ! Для проверки этого примера нужно использовать браузер Chrome и загружать данную
-            страницу из репозитория Github. Если запускать ее локально, то пример работать не будет.</p>  
+            страницу из репозитория Github. Если запускать ее локально, то пример работать не будет. 
+            Найти создаваемый в этом примере файл на диске невозможно, так как он будет иметь совсем другое имя 
+            и будет доступен только через созданную файловую систему.</p>  
               <br>
                  
-               <button onclick="CreateFileSystem()">Создать файловую систему2</button> 
+               <button onclick="CreateFileSystem()">Создать файловую систему</button> 
+ 
+                 <button onclick="CreateFileBtnHandler()">Создать файл</button> 
 
-                <button onclick="Info()">INFO</button> 
-
-                 <button onclick="CreateFileBtnHandler()">Create File</button> 
-
-                   <button onclick="readFile()">Read File</button> 
-
-                      <button onclick="makeDirectory()">Make directory</button> 
+                   <button onclick="ReadFileBtnHandler()">Прочитать файл</button> 
                                                 
                  <p>Строка сообщений: <span id="Message"></span></p>
 
