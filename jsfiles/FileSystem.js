@@ -90,22 +90,16 @@
 
   function writeFile(path, contents) {
 
-   filesystem.root.getFile('n.txt', // Имя и путь к файлу.
+   filesystem.root.getFile('m.txt', // Имя и путь к файлу.
                            {create: true}, // Создать файл, если он не существует.
                             function(entry) { // Вызвать эту функцию, когда файл будет найден или создан.
                               Display.innerHTML = "Файл создан успешно!"+entry.fullPath;  
-                                 entry.createWriter( // Создать для файла объект FileWriter.
-                                                      function(writer) {
-                                                        var bb = new BlobBuilder(); 
-                                                        bb.append('YES!');
-                                                         writer.write(bb.getBlob('text/plain'));
-                                                          Display.innerHTML = "Записано успешно!";  
-                                                      },
-                                                    errorCreateWriter
-                                                   );
-                            },
-                            errorGetFile
-                          );   
+                                 entry.createWriter(function(writer) {
+                                                        var blob = new Blob(['Hello World!'], {type: 'text/plain'});
+                                                         writer.write(blob);
+                                                          writer.onwrite = function(e) { Display.innerHTML = "Записано успешно!"; }
+                                                    }, errorCreateWriter);
+                            }, errorGetFile);   
 
 
    function  errorGetFile(e) {
@@ -127,30 +121,26 @@ function readFile(){
    var TxtArea = document.getElementById("TextArea");
    TxtArea.innerHTML = "проверка!!!";
 
-     filesystem.root.getFile('n.txt', {}, function(fileEntry) {
+     filesystem.root.getFile('m.txt', {}, function(fileEntry) {                                 
+                                              fileEntry.file(function(file) {
+                                                               var reader = new FileReader();
+                                                                 reader.onload = function(e) {                    
+                                                                                   TxtArea.innerHTML = this.result;             
+                                                                                 };
 
-                                              
-           fileEntry.file(function(file) {
-               var reader = new FileReader();
+                                                                reader.readAsText();
+                                                              }, errorCreateReader);
 
-                 reader.onload = function(e) {                    
-                                        TxtArea.innerHTML = this.result;             
-                                    };
+                                          }, errorReadGetFile);
+       
 
-                reader.readAsText(file);
-            }, errorCreateReader);
-
-       }, errorReadGetFile);
-  
-
-  function  errorReadGetFile(e) {
+  function  errorReadGetFile(e) { 
      Display.innerHTML = "Ошибка errorReadGetFile:"+e;
    }
 
    function  errorCreateReader(e) {
      Display.innerHTML = "Ошибка errorCreateReader:"+e;
    }   
-
 }
 
 //--------------------------------------------------------------------------------------
