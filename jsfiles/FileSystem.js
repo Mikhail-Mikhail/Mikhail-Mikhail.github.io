@@ -124,11 +124,12 @@ function readFile(){
      filesystem.root.getFile('m.txt', {}, function(fileEntry) {                                 
                                               fileEntry.file(function(file) {
                                                                var reader = new FileReader();
-                                                                 reader.onload = function(e) {                    
-                                                                                   TxtArea.innerHTML = this.result;             
+                                                                 reader.onload = function() {                    
+                                                                                   var text = reader.result;
+                                                                                   TxtArea.innerHTML = text;             
                                                                                  };
 
-                                                                reader.readAsText();
+                                                                reader.readAsText(file);
                                                               }, errorCreateReader);
 
                                           }, errorReadGetFile);
