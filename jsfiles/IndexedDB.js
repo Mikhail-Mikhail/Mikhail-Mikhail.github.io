@@ -13,6 +13,9 @@
   //Ссылка на строку для отображения информации.
   var Display;
 
+  //Ссылка на созданную базу данных.
+  var db;
+
   //Реализации indexedDB в разных браузерах.
  // window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
   window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction;
@@ -24,31 +27,37 @@
  //Обработчик кнопки "Создать БД".
  
 
- function CreateDB() {
+ function CreateBtnHandler() {
  	
   //Найти элемент для отображения информационных сообщений.
   Display = document.getElementById("Message");
   
- if(window.indexedDB) alert("Ok1");
-   if( window.IDBTransaction) alert("Ok2");
-    if(window.IDBKeyRange) alert("Ok3");
-    if ('indexedDB' in window) alert("ok4!");
+    //Создать БД.
+    InitDB("MyTestDatabase", 1);
+ }
+//--------------------------------------------------------------------------------------
+  
+   //Функция создания и инициализации БД.
+
+   function InitDB(name, version) {
 
     //Запросить создание БД.
-    var request = window.indexedDB.open("MyTestDatabase", 1);
+    var request = window.indexedDB.open(name, version);
 
      //При успешном выполнении запроса на создание БД.
      request.onsuccess = function(event) {
-//       var db = request.result; // Результатом запроса является база данных.
-        Display.innerHTML = "Ок!";
+       //Сохранить ссылку на созданную базу данных.
+       db = event.target.result;
+
+        Display.innerHTML = "База данных создана успешно!";
      }
 
-     //При ошибке выполнения запроса на создание БД.
+     //Ошибка при выполнения запроса на создание БД.
      request.onerror = function(event) {
-        Display.innerHTML = "Ошибка при создании БД.";
+        Display.innerHTML = "Ошибка при создании БД: "+event.target.errorCode;
      }
-   
- }
-//--------------------------------------------------------------------------------------
 
+   }
+
+//--------------------------------------------------------------------------------------
  
