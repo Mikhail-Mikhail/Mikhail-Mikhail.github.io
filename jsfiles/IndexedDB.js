@@ -48,13 +48,18 @@
      request.onsuccess = function(event) {
        //Сохранить ссылку на созданную базу данных.
        db = event.target.result;
+     }
+
+      request.onupgradeneeded = function(event) { 
+       var db = event.target.result;
 
         // Создать хранилище объектов для этой базы данных.
         var objectStore = db.createObjectStore("Persons", { keyPath: "TabelNumber" });
 
         Display.innerHTML = "База данных создана успешно!";
-     }
+      }
 
+    
      //Ошибка при выполнения запроса на создание БД.
      request.onerror = function(event) {
         Display.innerHTML = "Ошибка при создании БД: "+event.target.errorCode;
