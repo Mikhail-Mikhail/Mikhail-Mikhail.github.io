@@ -33,7 +33,7 @@
   Display = document.getElementById("Message");
   
     //Создать БД.
-    InitDB("MyTestDatabase", 1);
+    InitDB("MyTestDatabase", 2);
  }
 //--------------------------------------------------------------------------------------
   
