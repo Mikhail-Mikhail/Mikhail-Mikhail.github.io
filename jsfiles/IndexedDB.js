@@ -13,13 +13,16 @@
   //Ссылка на строку для отображения информации.
   var Display;
 
-  //Ссылка на созданную базу данных.
-  var db;
+   //Ссылка на созданную базу данных.
+   var db;
 
-  //Реализации indexedDB в разных браузерах.
- // window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
-  window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction;
-  window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange;
+    //Ссылка на хранилище в базе данных.
+    var objectStore;
+
+    //Реализации indexedDB в разных браузерах.
+    window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+    window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction;
+    window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange;
 
 //---------------------------------------------------------------------------------------
 
@@ -34,6 +37,24 @@
   
     //Создать БД.
     InitDB("MyTestDatabase", 2);
+ }
+//--------------------------------------------------------------------------------------
+
+
+ //Обработчик кнопки "Сохранить данные в БД".
+ 
+
+ function SaveBtnHandler() {
+
+    //Создать объект.
+    var MyObj = {
+                  TabelNumber: 1111,
+                  name: "Mike",
+                  surname: "Miller"
+                };
+  
+    //Сохранить данные в БД.
+    SaveData(objectStore, MyObj);
  }
 //--------------------------------------------------------------------------------------
   
@@ -68,4 +89,14 @@
    }
 
 //--------------------------------------------------------------------------------------
- 
+  
+   //Функция сохранения данных в БД.
+
+   function  SaveData(objStore, obj){
+   
+   alert("TabelNumber = "+obj.TabelNumber+"  Name = "+obj.name+"  Surname = "+obj.surname);
+
+     //Сохранить объект в БД.
+     objStore.add(obj);
+   }
+//--------------------------------------------------------------------------------------
