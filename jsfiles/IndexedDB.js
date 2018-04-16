@@ -114,12 +114,12 @@
           PersonObjectStore = db.createObjectStore("Persons", { keyPath: "TabelNumber" });
          } 
 
-          if(version>1){
+          if(version===2){
             // Создать второе хранилище объектов в БД версии Ver.2 или Ver.3
             CarsObjectStore = db.createObjectStore("Cars", { keyPath: "StateNumber" });
           }
 
-           if(version>2){
+           if(version===3){
             // Создать третье хранилище объектов в БД версии Ver.3
             OrdersObjectStore = db.createObjectStore("Orders", { keyPath: "OrederNumber" });
            }
