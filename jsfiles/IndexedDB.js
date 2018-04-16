@@ -111,17 +111,20 @@
 
          if(version===1){
           // Создать первое хранилище объектов в БД версии Ver.1.
-          PersonObjectStore = db.createObjectStore("Persons", { keyPath: "TabelNumber" });
+         // PersonObjectStore = db.createObjectStore("Persons", { keyPath: "TabelNumber" });
+         alert("ver1");
          } 
 
           if(version===2){
             // Создать второе хранилище объектов в БД версии Ver.2 или Ver.3
            // CarsObjectStore = db.createObjectStore("Cars", { keyPath: "StateNumber" });
+             alert("ver2");
           }
 
            if(version===3){
             // Создать третье хранилище объектов в БД версии Ver.3
            // OrdersObjectStore = db.createObjectStore("Orders", { keyPath: "OrederNumber" });
+             alert("ver3");
            }
 
         Display.innerHTML = "Событие 'onupgradeneeded': База данных обновлена до версии Ver."+version;
