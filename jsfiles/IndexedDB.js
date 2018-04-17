@@ -50,6 +50,16 @@
 
  //--------------------------------------------------------------------------------------
 
+ //Обработчик кнопки "Создать БД версии Ver.1".
+ 
+
+ function UpdateBtnHandlerVer1() {
+  
+    // Создать БД версии Ver.1
+    // Если на компьютере пользователя уже есть БД версии Ver.1, то она будет просто открыта.
+    InitDB("MyTestDatabase", 1);
+ }
+//--------------------------------------------------------------------------------------
 
  //Обработчик кнопки "Обновить БД до Ver.2".
  
@@ -109,21 +119,20 @@
        // Получить ссылку на БД. 
        db = event.target.result;
 
-         if(version===1){
-          // Создать первое хранилище объектов в БД версии Ver.1.
-         // PersonObjectStore = db.createObjectStore("Persons", { keyPath: "TabelNumber" });
-         alert("ver1");
-         } 
+    
+          // Создать первое хранилище объектов в БД любой версии.
+          PersonObjectStore = db.createObjectStore("Persons", { keyPath: "TabelNumber" });
+        
 
-          if(version===2){
+          if(version>1){
             // Создать второе хранилище объектов в БД версии Ver.2 или Ver.3
-           // CarsObjectStore = db.createObjectStore("Cars", { keyPath: "StateNumber" });
+            CarsObjectStore = db.createObjectStore("Cars", { keyPath: "StateNumber" });
              alert("ver2");
           }
 
-           if(version===3){
+           if(version>2){
             // Создать третье хранилище объектов в БД версии Ver.3
-           // OrdersObjectStore = db.createObjectStore("Orders", { keyPath: "OrederNumber" });
+            OrdersObjectStore = db.createObjectStore("Orders", { keyPath: "OrederNumber" });
              alert("ver3");
            }
 
