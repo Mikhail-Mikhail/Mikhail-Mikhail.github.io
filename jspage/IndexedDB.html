@@ -23,14 +23,25 @@
             <p> ВНИМАНИЕ! Для проверки этого примера нужно использовать браузер Chrome и загружать данную
             страницу из репозитория Github. Если запускать ее локально, то пример работать не будет. 
             </p>  
-              <br>
-               <button onclick="UpdateBtnHandlerVer1()">Создать БД версии Ver.1</button> 
+               <p> Предоставляется возможность создать БД различных версий:
+                <ul>
+                  <li> Ver.1 - содержит одно хранилище объектов "Persons"</li> 
+                  <li> Ver.2 - содержит два хранилища объектов  "Persons" и "Cars"</li> 
+                  <li> Ver.3 - содержит три хранилища объектов "Persons", "Cars" и "Orders"</li> 
+                </ul>  
+                Можно сразу создать базу данных версии Ver.2 или Ver.3, а можно сначала создать БД Ver.1,
+                а затем обновить ее до версии Ver.2 или Ver.3. Перед каждым обновлением БД необходимо перезагружать
+                страницу, т.е. после создания БД версии Ver.1, нужно перезагрузить страницу и обновить БД до Ver.2,
+                затем еще раз перезагрузить страницу и обновить БД до Ver.3. По клавише F12 можно проверить создание БД с хранилищами объектов в браузере. 
+               </p>
 
-                <button onclick="UpdateBtnHandlerVer2()">Обновить БД до Ver.2</button> 
+                  <button onclick="UpdateBtnHandlerVer1()">Создать БД версии Ver.1</button> 
+   
+                   <button onclick="UpdateBtnHandlerVer2()">Создать или обновить БД до Ver.2</button> 
 
-                 <button onclick="UpdateBtnHandlerVer3()">Обновить БД до Ver.3</button> 
+                    <button onclick="UpdateBtnHandlerVer3()">Создать или обновить БД до Ver.3</button> 
 
-                  <button onclick="SaveBtnHandler()">Сохранить данные в БД WWW1</button> 
+                     <button onclick="SaveBtnHandler()">Сохранить данные в БД WWW2</button> 
                                                 
                  <p>Строка сообщений: <span id="Message"></span></p>
 

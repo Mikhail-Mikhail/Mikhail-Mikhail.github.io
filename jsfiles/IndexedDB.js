@@ -39,13 +39,6 @@
 
     //Найти элемент для отображения информационных сообщений.
     Display = document.getElementById("Message");
-
-    //Поочередный вывов функций, которые должны выполниться сразу после загрузки страницы.
-
-     //Открыть или создать БД(если ее нет) с исходной версией Ver.1
-     // При первой загрузке страницы пользователем, на его компьютере будет создана исходная БД версии Ver.1
-     // При последующих загрузках страницы пользователем, уже существующая БД версии Ver.1 будет просто открываться.
-   //  InitDB("MyTestDatabase", 1);
    }
 
  //--------------------------------------------------------------------------------------
@@ -116,28 +109,26 @@
       // 2. Если версия создаваемой БД отличается от версии БД, созданной ранее на компьютере пользователя.
       // После вызова этой функции будет еще вызвана и функция обработки события "request.onsuccess". 
       request.onupgradeneeded = function(event) { 
+
        // Получить ссылку на БД. 
        db = event.target.result;
 
+          // Создать хранилище объектов "Persons" в БД версии Ver.1, Ver.2 или Ver.3.
          if (version===1 || (version>1 && event.oldVersion < 1)) {    
-          // Создать первое хранилище объектов в БД любой версии.
           PersonObjectStore = db.createObjectStore("Persons", { keyPath: "TabelNumber" });
          } 
         
-
+          // Создать хранилище объектов "Cars" в БД версии Ver.2 или Ver.3
           if (version===2 || (version>2 && event.oldVersion < 2)) {   
-            // Создать второе хранилище объектов в БД версии Ver.2 или Ver.3
             CarsObjectStore = db.createObjectStore("Cars", { keyPath: "StateNumber" });
-             alert("ver2");
           }
 
+           // Создать хранилище объектов "Orders" в БД версии Ver.3
            if(version===3){
-            // Создать третье хранилище объектов в БД версии Ver.3
-            OrdersObjectStore = db.createObjectStore("Orders", { keyPath: "OrederNumber" });
-             alert("ver3");
+             OrdersObjectStore = db.createObjectStore("Orders", { keyPath: "OrederNumber" });
            }
 
-        Display.innerHTML = "Событие 'onupgradeneeded': База данных обновлена до версии Ver."+version;
+        Display.innerHTML = "База данных успешно обновлена до версии Ver."+version;
       }
 
 
@@ -153,7 +144,7 @@
     
        //Ошибка при выполнения запроса на создание БД.
        request.onerror = function(event) {
-         Display.innerHTML = "Ошибка при создании БД: "+event.target.errorCode;
+         Display.innerHTML = "Ошибка при создании БД: " + event.target.errorCode;
        }
 
    }
