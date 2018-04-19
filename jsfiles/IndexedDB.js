@@ -36,7 +36,6 @@
    
    function PostConstruct(){
 
-
     //Найти элемент для отображения информационных сообщений.
     Display = document.getElementById("Message");
    }
@@ -153,11 +152,18 @@
   
    //Функция сохранения данных в БД.
 
-   function  SaveData(objStore, obj){
+   function  SaveData(obStore, obj){
    
    alert("TabelNumber = "+obj.TabelNumber+"  Name = "+obj.name+"  Surname = "+obj.surname);
 
+    var transaction = db.transaction(["Persons"], "readwrite");
+    var objectStore = transaction.objectStore("Persons");
+
      //Сохранить объект в БД.
-     objStore.add(obj);
+     var request = objectStore.add(obj);
+
+      request.onsuccess = function(event) {
+        Display.innerHTML = "Записано успешно!";
+      }
    }
 //--------------------------------------------------------------------------------------
