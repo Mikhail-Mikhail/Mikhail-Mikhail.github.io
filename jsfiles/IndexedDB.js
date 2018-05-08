@@ -152,12 +152,12 @@
   
    //Функция сохранения данных в БД.
 
-   function  SaveData(obStore, obj){
+   function  SaveData(ParObStore, obj){
    
    alert("TabelNumber = "+obj.TabelNumber+"  Name = "+obj.name+"  Surname = "+obj.surname);
 
-    var transaction = db.transaction([obStore], "readwrite");
-    var objectStore = transaction.objectStore(obStore);
+    var transaction = db.transaction([ParObStore.name], "readwrite");
+    var objectStore = transaction.objectStore(ParObStore.name);
 
      //Сохранить объект в БД.
      var request = objectStore.add(obj);
