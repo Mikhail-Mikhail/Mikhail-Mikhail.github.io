@@ -144,7 +144,7 @@
       SaveData(PersonObjectStore, ManObj[2]);
 
       //Сохранить данные в БД версии Ver.2.
-      if(db.version===2) {
+      if(db.version>1) {
        SaveData(CarsObjectStore, CarObj[0]);
         SaveData(CarsObjectStore, CarObj[1]);
          SaveData(CarsObjectStore, CarObj[2]);
@@ -216,8 +216,6 @@
    //Функция сохранения данных в БД.
 
    function  SaveData(ParObStore, obj){
-   
-   alert("TabelNumber = "+obj.TabelNumber+"  Name = "+obj.name+"  Surname = "+obj.surname);
 
     var transaction = db.transaction([ParObStore.name], "readwrite");
     var objectStore = transaction.objectStore(ParObStore.name);
