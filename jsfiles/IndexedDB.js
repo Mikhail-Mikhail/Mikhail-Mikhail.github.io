@@ -156,8 +156,8 @@
    
    alert("TabelNumber = "+obj.TabelNumber+"  Name = "+obj.name+"  Surname = "+obj.surname);
 
-    var transaction = db.transaction(["Persons"], "readwrite");
-    var objectStore = transaction.objectStore("Persons");
+    var transaction = db.transaction([obStore], "readwrite");
+    var objectStore = transaction.objectStore(obStore);
 
      //Сохранить объект в БД.
      var request = objectStore.add(obj);
