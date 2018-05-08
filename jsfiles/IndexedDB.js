@@ -84,15 +84,78 @@
 
  function SaveBtnHandler() {
 
-    //Создать объект.
-    var MyObj = {
-                  TabelNumber: 1111,
-                  name: "Mike",
-                  surname: "Miller"
-                };
+    //Создать массив объектов для хранилища "Persons".
+    var ManObj = [ {
+                    TabelNumber: 1111,
+                    name: "Mike",
+                    surname: "Turner"
+                   },
+                   {
+                    TabelNumber: 2222,
+                    name: "Jack",
+                    surname: "Williams"
+                   },
+                   {
+                    TabelNumber: 3333,
+                    name: "Josef",
+                    surname: "Miller"
+                   }
+                  ];
+
+      //Создать массив объектов для хранилища "Cars".
+      var CarObj = [ {
+                       StateNumber: 839,
+                       model: "VW",
+                       year: 1997
+                     },
+                     {
+                       StateNumber: 840,
+                       model: "Opel",
+                       year: 2001
+                     },
+                     {
+                       StateNumber: 841,
+                       model: "Toyota",
+                       year: 2009
+                     }
+                   ];   
+
+        //Создать массив объектов для хранилища "Orders".
+        var OrderObj = [ {
+                          OrderNumber: 5001,
+                          customer: "Bill Lawer",
+                          price: 400
+                         },
+                         {
+                          OrderNumber: 5002,
+                          customer: "Steeve Smith",
+                          price: 430
+                         },
+                         {
+                          OrderNumber: 5003,
+                          customer: "Max Brick",
+                          price: 180
+                         }
+                       ];                   
   
-    //Сохранить данные в БД.
-    SaveData(PersonObjectStore, MyObj);
+    //Сохранить данные в БД любой версии.
+    SaveData(PersonObjectStore, ManObj[0]);
+     SaveData(PersonObjectStore, ManObj[1]);
+      SaveData(PersonObjectStore, ManObj[2]);
+
+      //Сохранить данные в БД версии Ver.2.
+      if(db.version===2) {
+       SaveData(CarsObjectStore, CarObj[0]);
+        SaveData(CarsObjectStore, CarObj[1]);
+         SaveData(CarsObjectStore, CarObj[2]);
+      }
+
+        //Сохранить данные в БД версии Ver.3.
+        if(db.version===3) {
+          SaveData(OrdersObjectStore, OrderObj[0]);
+           SaveData(OrdersObjectStore, OrderObj[1]);
+            SaveData(OrdersObjectStore, OrderObj[2]);
+        }
  }
 //--------------------------------------------------------------------------------------
   
@@ -124,7 +187,7 @@
 
            // Создать хранилище объектов "Orders" в БД версии Ver.3
            if(version===3){
-             OrdersObjectStore = db.createObjectStore("Orders", { keyPath: "OrederNumber" });
+             OrdersObjectStore = db.createObjectStore("Orders", { keyPath: "OrderNumber" });
            }
 
         Display.innerHTML = "База данных успешно обновлена до версии Ver."+version;
@@ -164,6 +227,10 @@
 
       request.onsuccess = function(event) {
         Display.innerHTML = "Записано успешно!";
+      }
+
+       request.onerror = function(event) {
+        Display.innerHTML = "Ошибка записи в БД";
       }
    }
 //--------------------------------------------------------------------------------------
