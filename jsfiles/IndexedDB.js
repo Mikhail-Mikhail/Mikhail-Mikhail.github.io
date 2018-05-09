@@ -144,17 +144,17 @@
                        ];                   
   
     //Сохранить данные в БД любой версии.
-    for (var i in ManObj) {
+    for(var i in ManObj) {
       SaveData(PersonObjectStore, ManObj[i]);
     }
      
       //Сохранить данные в БД версии Ver.2.
-      for (var i in CarObj) {
+      for(var i in CarObj) {
         SaveData(PersonObjectStore, CarObj[i]);
       }
 
         //Сохранить данные в БД версии Ver.3.
-        for (var i in OrdersObj) {
+        for(var i in OrdersObj) {
           SaveData(PersonObjectStore, OrdersObj[i]);
         }
  }
@@ -179,6 +179,12 @@
           // Создать хранилище объектов "Persons" в БД версии Ver.1, Ver.2 или Ver.3.
          if (version===1 || (version>1 && event.oldVersion < 1)) {    
           PersonObjectStore = db.createObjectStore("Persons", { keyPath: "TabelNumber" });
+
+            //Создать индекс для всех объектов в хранилище "Persons" имеющих свойство "name".
+            objectStore.createIndex("nameIndex", "name", { unique: false });
+
+             //Создать индекс для всех объектов в хранилище "Persons" имеющих свойство "age".
+             objectStore.createIndex("ageIndex", "age", { unique: false });
          } 
         
           // Создать хранилище объектов "Cars" в БД версии Ver.2 или Ver.3
