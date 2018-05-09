@@ -151,14 +151,14 @@
       //Сохранить данные в БД версии Ver.2.
       if(db.version>1) {
          for(var i in CarObj) {
-          SaveData(PersonObjectStore, CarObj[i]);
+          SaveData(CarsObjectStore, CarObj[i]);
          }
       }   
 
         //Сохранить данные в БД версии Ver.3.
         if(db.version===3) {
            for(var i in OrdersObj) {
-            SaveData(PersonObjectStore, OrdersObj[i]);
+            SaveData(OrdersObjectStore, OrdersObj[i]);
            }
         }   
  }
