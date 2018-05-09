@@ -92,13 +92,18 @@
                    },
                    {
                     TabelNumber: 2222,
-                    name: "Jack",
-                    surname: "Williams"
+                    surname: "Williams",
+                    age: 47
                    },
                    {
                     TabelNumber: 3333,
                     name: "Josef",
                     surname: "Miller"
+                   },
+                   {
+                    TabelNumber: 3333,
+                    surname: "Krighton"
+                    age: 38
                    }
                   ];
 
@@ -139,22 +144,18 @@
                        ];                   
   
     //Сохранить данные в БД любой версии.
-    SaveData(PersonObjectStore, ManObj[0]);
-     SaveData(PersonObjectStore, ManObj[1]);
-      SaveData(PersonObjectStore, ManObj[2]);
-
+    for (var i in ManObj) {
+      SaveData(PersonObjectStore, ManObj[i]);
+    }
+     
       //Сохранить данные в БД версии Ver.2.
-      if(db.version>1) {
-       SaveData(CarsObjectStore, CarObj[0]);
-        SaveData(CarsObjectStore, CarObj[1]);
-         SaveData(CarsObjectStore, CarObj[2]);
+      for (var i in CarObj) {
+        SaveData(PersonObjectStore, CarObj[i]);
       }
 
         //Сохранить данные в БД версии Ver.3.
-        if(db.version===3) {
-          SaveData(OrdersObjectStore, OrderObj[0]);
-           SaveData(OrdersObjectStore, OrderObj[1]);
-            SaveData(OrdersObjectStore, OrderObj[2]);
+        for (var i in OrdersObj) {
+          SaveData(PersonObjectStore, OrdersObj[i]);
         }
  }
 //--------------------------------------------------------------------------------------
