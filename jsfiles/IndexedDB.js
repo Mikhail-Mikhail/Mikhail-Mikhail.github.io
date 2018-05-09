@@ -181,10 +181,10 @@
           PersonObjectStore = db.createObjectStore("Persons", { keyPath: "TabelNumber" });
 
             //Создать индекс для всех объектов в хранилище "Persons" имеющих свойство "name".
-            objectStore.createIndex("nameIndex", "name", { unique: false });
+            PersonObjectStore.createIndex("nameIndex", "name", { unique: false });
 
              //Создать индекс для всех объектов в хранилище "Persons" имеющих свойство "age".
-             objectStore.createIndex("ageIndex", "age", { unique: false });
+             PersonObjectStore.createIndex("ageIndex", "age", { unique: false });
          } 
         
           // Создать хранилище объектов "Cars" в БД версии Ver.2 или Ver.3
