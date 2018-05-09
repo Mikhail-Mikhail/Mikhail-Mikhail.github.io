@@ -101,7 +101,7 @@
                     surname: "Miller"
                    },
                    {
-                    TabelNumber: 3333,
+                    TabelNumber: 4444,
                     surname: "Krighton",
                     age: 38
                    }
@@ -149,14 +149,18 @@
     }
      
       //Сохранить данные в БД версии Ver.2.
-      for(var i in CarObj) {
-        SaveData(PersonObjectStore, CarObj[i]);
-      }
+      if(db.version>1) {
+         for(var i in CarObj) {
+          SaveData(PersonObjectStore, CarObj[i]);
+         }
+      }   
 
         //Сохранить данные в БД версии Ver.3.
-        for(var i in OrdersObj) {
-          SaveData(PersonObjectStore, OrdersObj[i]);
-        }
+        if(db.version===3) {
+           for(var i in OrdersObj) {
+            SaveData(PersonObjectStore, OrdersObj[i]);
+           }
+        }   
  }
 //--------------------------------------------------------------------------------------
   
