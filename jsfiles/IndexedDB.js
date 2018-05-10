@@ -175,23 +175,25 @@
 
   alert("start");
 
-  if(NameIndex) alert("NameIndex Ok"); 
-   else alert("NameIndex Error"); 
+ // if(NameIndex) alert("NameIndex Ok"); 
+ //  else alert("NameIndex Error"); 
+
+   var index = PersonObjectStore.index("nameIndex");
 
    //Создать курсор для индекса NameIndex.
-   var request = NameIndex.openCursor();
+   var request = index.openCursor();
 
    request.onsuccess = function(event){
        
        alert("Ok");
-      // var cursor = event.target.result;
+       var cursor = event.target.result;
       //  alert("Ok1");
         //Прочитать все объекты из индекса.
-       // if (cursor) {
+        if (cursor) {
       //    alert("Ok2");
-          //alert("Name: " + cursor.key + ", TabelNumber: " + cursor.value.TabelNumber + ", surname: " + cursor.value.surname);
-          //cursor.continue();
-      //  }
+          alert("Name: " + cursor.key + ", TabelNumber: " + cursor.value.TabelNumber + ", surname: " + cursor.value.surname);
+          cursor.continue();
+        }
    }  
 
     request.onerror = function(event){  
