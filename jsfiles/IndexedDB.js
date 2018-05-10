@@ -174,18 +174,24 @@
  function ReadBtnHandler() {
 
    //Создать курсор для индекса NameIndex.
-   NameIndex.openCursor().onsuccess = function(event) {
+   var request = NameIndex.openCursor();
+
+   request.onsuccess = function(event){
        
        alert("Ok");
-       var cursor = event.target.result;
-        alert("Ok1");
+      // var cursor = event.target.result;
+      //  alert("Ok1");
         //Прочитать все объекты из индекса.
-        if (cursor) {
-          alert("Ok2");
+       // if (cursor) {
+      //    alert("Ok2");
           //alert("Name: " + cursor.key + ", TabelNumber: " + cursor.value.TabelNumber + ", surname: " + cursor.value.surname);
           //cursor.continue();
-        }
-   }      
+      //  }
+   }  
+
+    request.onerror = function(event){  
+       alert("Error: " + event.target.errorCode);
+    } 
  }
 
 //--------------------------------------------------------------------------------------  
