@@ -157,8 +157,8 @@
 
         //Сохранить данные в БД версии Ver.3.
         if(db.version===3) {
-           for(var i in OrdersObj) {
-            SaveData(OrdersObjectStore, OrdersObj[i]);
+           for(var i in OrderObj) {
+            SaveData(OrdersObjectStore, OrderObj[i]);
            }
         }   
  }
