@@ -19,6 +19,9 @@
     //Ссылки на хранилища объектов в базе данных.
     var PersonObjectStore, CarsObjectStore, OrdersObjectStore;
 
+     //Ссылки на индексы в БД.
+     var NameIndex, AgeIndex;
+
     //Реализации indexedDB в разных браузерах.
    // window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
     window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction;
@@ -163,6 +166,26 @@
         }   
  }
 //--------------------------------------------------------------------------------------
+
+ 
+ //Обработчик кнопки "Прочитать данные из БД".
+ 
+
+ function ReadBtnHandler() {
+
+   //Создать курсор для индекса NameIndex.
+   NameIndex.openCursor().onsuccess = function(event) {
+       
+       var cursor = event.target.result;
+        //Прочитать все объекты из индекса.
+        if (cursor) {
+          alert("Name: " + cursor.key + ", TabelNumber: " + cursor.value.TabelNumber + ", surname: " + cursor.value.surname);
+          cursor.continue();
+        }
+   }      
+ }
+
+//--------------------------------------------------------------------------------------  
   
    //Функция инициализации БД.
 
@@ -185,10 +208,10 @@
           PersonObjectStore = db.createObjectStore("Persons", { keyPath: "TabelNumber" });
 
             //Создать индекс для всех объектов в хранилище "Persons" имеющих свойство "name".
-            PersonObjectStore.createIndex("nameIndex", "name", { unique: false });
+            NameIndex = PersonObjectStore.createIndex("nameIndex", "name", { unique: false });
 
              //Создать индекс для всех объектов в хранилище "Persons" имеющих свойство "age".
-             PersonObjectStore.createIndex("ageIndex", "age", { unique: false });
+             AgeIndex = PersonObjectStore.createIndex("ageIndex", "age", { unique: false });
          } 
         
           // Создать хранилище объектов "Cars" в БД версии Ver.2 или Ver.3
