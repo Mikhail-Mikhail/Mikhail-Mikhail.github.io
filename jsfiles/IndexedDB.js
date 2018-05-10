@@ -173,6 +173,11 @@
 
  function ReadBtnHandler() {
 
+  alert("start");
+
+  if(NameIndex) alert("NameIndex Ok"); 
+   else alert("NameIndex Error"); 
+
    //Создать курсор для индекса NameIndex.
    var request = NameIndex.openCursor();
 
