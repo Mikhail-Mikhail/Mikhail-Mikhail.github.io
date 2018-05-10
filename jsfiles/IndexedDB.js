@@ -176,11 +176,14 @@
    //Создать курсор для индекса NameIndex.
    NameIndex.openCursor().onsuccess = function(event) {
        
+       alert("Ok");
        var cursor = event.target.result;
+        alert("Ok1");
         //Прочитать все объекты из индекса.
         if (cursor) {
-          alert("Name: " + cursor.key + ", TabelNumber: " + cursor.value.TabelNumber + ", surname: " + cursor.value.surname);
-          cursor.continue();
+          alert("Ok2");
+          //alert("Name: " + cursor.key + ", TabelNumber: " + cursor.value.TabelNumber + ", surname: " + cursor.value.surname);
+          //cursor.continue();
         }
    }      
  }
