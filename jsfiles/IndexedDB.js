@@ -13,19 +13,19 @@
   //Ссылка на строку для отображения информации.
   var Display;
 
-   //Ссылка на базу данных.
-   var db;
+   //Ссылка на строку для отображения информации, прочитанной из БД.
+   var PrintData;
 
-    //Ссылки на хранилища объектов в базе данных.
-    var PersonObjectStore, CarsObjectStore, OrdersObjectStore;
+    //Ссылка на базу данных.
+    var db;
 
-     //Ссылки на индексы в БД.
-     var NameIndex, AgeIndex;
+     //Ссылки на хранилища объектов в базе данных.
+     var PersonObjectStore, CarsObjectStore, OrdersObjectStore;
 
-    //Реализации indexedDB в разных браузерах.
-   // window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
-    window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction;
-    window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange;
+      //Реализации indexedDB в разных браузерах.
+      // window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+      window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction;
+      window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange;
 
 //---------------------------------------------------------------------------------------
 
@@ -41,6 +41,9 @@
 
     //Найти элемент для отображения информационных сообщений.
     Display = document.getElementById("Message");
+
+      //Найти элемент для отображения информации, прочитанной из БД.
+      PrintData = document.getElementById("DataArea");
    }
 
  //--------------------------------------------------------------------------------------
@@ -173,38 +176,37 @@
 
  function ReadBtnHandler() {
 
-  alert("start");
+   //Очистить строку для отображения прочитанной информации.
+   PrintData.innerHTML = "";
 
- // if(NameIndex) alert("NameIndex Ok"); 
- //  else alert("NameIndex Error"); 
-
+   //Создать транзакцию для доступа к хранилищу объектов.
    var transaction = db.transaction([PersonObjectStore.name], "readwrite");
     var objectStore = transaction.objectStore(PersonObjectStore.name);
 
-      var index = objectStore.index("nameIndex");
+     //Получить доступ к индексу "nameIndex" в хранилище "Persons".
+     var index = objectStore.index("nameIndex");
 
-   // if(index) alert("index Ok");
-   //  else alert("index error");
+      //Создать курсор для индекса "nameIndex".
+      var request = index.openCursor();
 
-   //Создать курсор для индекса NameIndex.
-   var request = index.openCursor();
-
-   request.onsuccess = function(event){
+       //Курсор создан успешно.
+       request.onsuccess = function(event){
        
-   //    alert("onsuccess Ok");
-       var cursor = event.target.result;
-      //  alert("Ok1");
-        //Прочитать все объекты из индекса.
-        if (cursor) {
-      //    alert("Ok2");
-          alert("Name: " + cursor.key + ", TabelNumber: " + cursor.value.TabelNumber + ", surname: " + cursor.value.surname);
-          cursor.continue();
-        }
-   }  
+          //Получить созданный курсор.
+          var cursor = event.target.result;
+      
+           //Прочитать все объекты из индекса "nameIndex" с помощью курсора.
+          if (cursor) {
+            var str = "Name: " + cursor.key + ", TabelNumber: " + cursor.value.TabelNumber + ", surname: " + cursor.value.surname+"<br>";
+             PrintData.insertAdjacentHTML("beforeend", str); 
+              cursor.continue();
+          }
+       }  
 
-    request.onerror = function(event){  
-       alert("Error: " + event.target.errorCode);
-    } 
+     //Ошибка при создании курсора.
+     request.onerror = function(event){  
+       PrintData.innerHTML = "Ошибка чтения из БД: "+event.target.errorCode;
+     } 
  }
 
 //--------------------------------------------------------------------------------------  
@@ -229,11 +231,11 @@
          if (version===1 || (version>1 && event.oldVersion < 1)) {    
           PersonObjectStore = db.createObjectStore("Persons", { keyPath: "TabelNumber" });
 
-            //Создать индекс для всех объектов в хранилище "Persons" имеющих свойство "name".
-            NameIndex = PersonObjectStore.createIndex("nameIndex", "name", { unique: false });
+            //Создать индекс для всех объектов в хранилище "Persons", имеющих свойство "name".
+            PersonObjectStore.createIndex("nameIndex", "name", { unique: false });
 
-             //Создать индекс для всех объектов в хранилище "Persons" имеющих свойство "age".
-             AgeIndex = PersonObjectStore.createIndex("ageIndex", "age", { unique: false });
+             //Создать индекс для всех объектов в хранилище "Persons", имеющих свойство "age".
+             PersonObjectStore.createIndex("ageIndex", "age", { unique: false });
          } 
         
           // Создать хранилище объектов "Cars" в БД версии Ver.2 или Ver.3
