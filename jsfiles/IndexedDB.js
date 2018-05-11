@@ -201,11 +201,13 @@
              PrintData.insertAdjacentHTML("beforeend", str); 
               cursor.continue();
           }
+        Display.innerHTML = "Прочитано успешно!";
+      } 
        }  
 
      //Ошибка при создании курсора.
      request.onerror = function(event){  
-       PrintData.innerHTML = "Ошибка чтения из БД: "+event.target.errorCode;
+       Display.innerHTML = "Ошибка чтения из БД: "+event.target.errorCode;
      } 
  }
 
