@@ -178,25 +178,28 @@
  // if(NameIndex) alert("NameIndex Ok"); 
  //  else alert("NameIndex Error"); 
 
-   var index = PersonObjectStore.index("nameIndex");
+   var transaction = db.transaction([PersonObjectStore.name], "readwrite");
+    var objectStore = transaction.objectStore(PersonObjectStore.name);
 
-    if(index) alert("index Ok");
-     else alert("index error");
+      var index = objectStore.index("nameIndex");
+
+   // if(index) alert("index Ok");
+   //  else alert("index error");
 
    //Создать курсор для индекса NameIndex.
    var request = index.openCursor();
 
    request.onsuccess = function(event){
        
-       alert("onsuccess Ok");
-      // var cursor = event.target.result;
+   //    alert("onsuccess Ok");
+       var cursor = event.target.result;
       //  alert("Ok1");
         //Прочитать все объекты из индекса.
-      //  if (cursor) {
+        if (cursor) {
       //    alert("Ok2");
-       //   alert("Name: " + cursor.key + ", TabelNumber: " + cursor.value.TabelNumber + ", surname: " + cursor.value.surname);
-      //    cursor.continue();
-      //  }
+          alert("Name: " + cursor.key + ", TabelNumber: " + cursor.value.TabelNumber + ", surname: " + cursor.value.surname);
+          cursor.continue();
+        }
    }  
 
     request.onerror = function(event){  
