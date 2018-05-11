@@ -201,9 +201,9 @@
              PrintData.insertAdjacentHTML("beforeend", str); 
               cursor.continue();
           }
-        Display.innerHTML = "Прочитано успешно!";
+        Display.innerHTML = "Прочитано успешно!";   
       } 
-       }  
+        
 
      //Ошибка при создании курсора.
      request.onerror = function(event){  
